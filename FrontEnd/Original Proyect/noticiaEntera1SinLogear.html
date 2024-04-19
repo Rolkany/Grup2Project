@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuniEvents</title>
+  <!-- Enlaces a Bootstrap CSS -->
+  <link rel="stylesheet" href="estilos/plantillacss.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+  <link rel="icon" href="img/icon.png" type="image/x-icon">
+
+  <style>
+    .noticia-container {
+      margin-top: 20px;
+    }
+
+    .noticia-title {
+      color: #007bff; /* Azul Bootstrap, puedes cambiarlo según tus preferencias */
+    }
+
+    .noticia-description p {
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .noticia-highlights {
+      margin-top: 20px;
+    }
+
+    .noticia-highlights h3 {
+      color: #007bff;
+    }
+
+    .noticia-highlights ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .noticia-highlights li {
+      margin-bottom: 10px;
+      margin-left: 20px; /* Margen izquierdo para la numeración */
+      font-style: italic; /* Estilo de fuente cursiva */
+    }
+
+    .footer {
+      margin-top: 50px;
+    }
+
+    .footer-title-01 {
+      color: #007bff;
+    }
+
+    .footer-link-01 a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-link-01 a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #ffffff;
+    }
+
+    .noticia-description {
+      max-width: 1024px; /* Establece el mismo ancho máximo que la imagen */
+      margin: auto; /* Centra el contenedor en la página */
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Header con imagen centrada -->
+  <header class="header-image">
+    <img src="img/logo.png" alt="Header Image" class="img-fluid">
+  </header>
+
+
+
+  <!-- INICIO BARRA DE NAVEGACION SIN LOGEAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiasinlogear.html">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="suscripcionTrimestralsinlogear.html">Suscripción</a>
+          </li>
+        </ul>
+       <form class="form-inline my-2 my-lg-0" action="buscadorsinlogear.html" method="GET">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+      <form class="form-inline mx-1 my-2 my-lg-0" action="login.html" method="GET">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+    </form>
+      </div>
+    </div>
+  </nav>
+<!-- FIN DE LA BARRA DE NAVEGACION SIN LOGEAR -->
+ <!-- INICIO NOTICIA 01 -->
+ <div class="container noticia-container">
+  <!-- Descripción de la noticia -->
+  <div class="noticia-description">  
+
+    <img src="img/evento1.webp" alt="Imagen Noticia 1" class="img-fluid">
+
+    <p class="image-caption"><span id="fotografo"></span></p>
+    <h2 class="text-center noticia-title" id="titulo"></h2>
+
+
+
+    <p id="contenido"></p>
+  </div>
+</div>
+
+<!-- FIN NOTICIA 01 -->
+
+<!--INICIO DEL FOOTER DE LA PAGINA-->
+<footer class="bg-dark footer">
+  <div class="footer-top py-8">
+      <div class="container">
+          <div class="row gy-5">
+              <div class="col-lg-8 pe-xxl-10">
+                  <div class="row gy-5">
+                      <div class="col-6 col-lg-4">
+                          <h5 class="text-white footer-title-01">MuniEvents</h5>
+                          <ul class="list-unstyled footer-link-01 m-0">
+                              <li><a class="text-white text-opacity-75" href="#">Sobre nosotros</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Blog</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-6 col-lg-4">
+                          <h5 class="text-white footer-title-01">Acerca de</h5>
+                          <ul class="list-unstyled footer-link-01 m-0">
+                              <li><a class="text-white text-opacity-75" href="#">Servicio al Cliente</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Política de privacidad</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Política de cookies</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Terminos y condiciones</a></li>
+                              <li><a class="text-white text-opacity-75" href="#"></a></li>
+                          </ul>
+                      </div>
+                      <div class="col-6 col-lg-4">
+                          <h5 class="text-white footer-title-01">Necesitas Ayuda?</h5>
+                          <ul class="list-unstyled footer-link-01 m-0">
+                              <li><a class="text-white text-opacity-75" href="#">Contacta con nosotros</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Preguntas frecuentes</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Ofertas</a></li>
+                              <li><a class="text-white text-opacity-75" href="#">Nuestros eventos</a></li>
+                              <li><img src="img/generalitat.img.png"  alt="Descripción de la imagen" style="max-width: 100px; max-height: auto;"></li>
+                              <li><img src="img/ajuntament.cornellaimg.jpg"  alt="Descripción de la imagen" style="max-width: 100px; max-height: auto;"></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <h5 class="text-white footer-title-01 fs-5">Suscríbete a nuestra newsletter y obtén un 15% de descuento en tu próximo compra.</h5>
+                  <div>
+                      <form class="d-flex flex-row mb-2 p-1 bg-white input-group"><input type="email" class="form-control rounded border-0" placeholder="Tu email"> <button class="btn btn-secondary flex-shrink-0" type="submit">Suscribete</button></form>
+                  </div>
+                  <div class="social-icons text-center">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="footer-bottom small py-3 border-top border-white border-opacity-10">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 text-center text-md-start py-1">
+                  <p class="m-0 text-white text-opacity-75">© 2024 copyright<a class="text-reset" href="#">MuniEvents.com</a></p>
+              </div>
+              <div class="col-md-6 text-center text-md-end py-1">
+                  <ul class="nav justify-content-center justify-content-md-end list-unstyled footer-link-01 m-0">
+                      <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Privacidad &amp; Politicas</a></li>
+                      <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Preguntas y respuestas</a></li>
+                      <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Entrevistas</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  </footer>
+  <!--FIN DEL FOOTER DE LA PAGINA-->
+
+<!-- Enlaces a Bootstrap JS y jQuery (necesarios para algunos componentes de Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // URL de tu API
+    const apiUrl = 'https://s8egzniilh.execute-api.us-east-1.amazonaws.com/noticia_barcelona/';
+
+    // Realizar la solicitud utilizando fetch
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Actualizar el contenido de la página con los datos obtenidos
+        document.querySelector('.noticia-container img').src = data.imagen;
+        document.querySelector('#fotografo').textContent = `Foto de ${data.nombreFotografo}`;
+        document.querySelector('#titulo').textContent = data.titulo;
+
+        // Estilizar la redacción
+        const contenidoElement = document.querySelector('#contenido');
+        contenidoElement.textContent = data.noticia_redaccion;
+        contenidoElement.style.textAlign = 'justify'; // Alineación justificada
+        contenidoElement.style.lineHeight = '1.9'; // Altura de línea
+
+        // Resto del código (si es necesario)
+      })
+      .catch(error => console.error('Error al obtener datos:', error));
+  });
+</script>
+</body>
+</html>

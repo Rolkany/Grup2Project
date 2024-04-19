@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  background-color: rgb(217, 70, 239);
+}
+
+body div {
+  display: flex;
+  justify-content: center;
+}
+
+#eventPicture {
+  filter: invert(1);
+  margin-top: 5px;
+  height: 150px;
+  border-radius: 2px;
+}
+
+.pt-2,
+p {
+  font-family: "Nunito Sans", sans-serif;
+  color: #ffffff !important;
+}
+
+.eventType {
+  border: #4e1057;
+  border: 3px;
+}
+
+.title {
+  font-size: 2em;
+  font-family: "Russo One", sans-serif !important;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 3rem;
+}
+
+.d-flex {
+  flex-direction: column;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-around !important;
+}
+
+.btn-primary {
+  margin-top: 1rem;
+  background-color: #4e1057 !important;
+  border: 1px solid #ffffff;
+  width: 105px;
+  margin: 0 auto !important;
+  box-shadow: 0px 5px 8px rgba(98, 98, 98, 0.5);
+  margin-top: 1rem !important;
+  font-family: "Russo One", sans-serif !important;
+}

@@ -1,0 +1,131 @@
+header {
+  background-color: #233142;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  height: 120px;
+}
+
+
+ .header-image {
+    text-align: center;
+  }
+  .wrapper>* {
+    flex: 0 0 auto;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.py-8 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+}
+
+.footer-link-01 li+li {
+    padding-top: 0.8rem;
+}
+
+.footer-title-01 {
+    font-size: 16px;
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+
+.footer-title-01 {
+    font-size: 16px;
+    margin: 0 0 20px;
+    font-weight: 600
+}
+
+.footer-link-01 li+li {
+    padding-top: .8rem
+}
+
+@media (max-width: 991.98px) {
+    .footer-link-01 li+li {
+        padding-top: .6rem
+    }
+}
+
+.footer-link-01 a {
+    position: relative;
+    display: inline-block;
+    vertical-align: top
+}
+
+.footer-link-01 a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 1px;
+    transition: ease all .35s;
+    background: currentColor
+}
+
+.footer-link-01 a:hover:after {
+    left: 0;
+    right: auto;
+    width: 100%
+}
+
+/*card*/
+
+
+body {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  height: 100%;
+  width: 100%; 
+  background: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+ 
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.container-fostrap {
+  display: table-cell;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+.fostrap-logo {
+  width: 100px;
+  margin-bottom:15px
+}
+h1.heading {
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: 900;
+  margin: 0 0 0.5em;
+  color: #505050;
+}
+@media (min-width: 450px) {
+  h1.heading {
+    font-size: 3.55em;
+  }
+}
+@media (min-width: 760px) {
+  h1.heading {
+    font-size: 3.05em;
+  }
+}
+@media (min-width: 900px) {
+  h1.heading {
+    font-size: 3.25em;
+    margin: 0 0 0.3em;
+  }
+} 

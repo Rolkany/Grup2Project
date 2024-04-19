@@ -1,0 +1,20 @@
+{
+    "eventNumber": "1",
+    "eventPicture": "https://ejemplo.com/avatar.jpg",
+    "eventTitle": "Conferencia",
+    "eventDateTime": "2024-06-15 12:00",
+    "eventLang": "Ingles",
+    "eventType": "Conferencia",
+    "eventLocation": "Cambrils",
+    "eventColab": [
+        {
+            "nombre": "Juan Pérez",
+            "rol": "Orador principal"
+        },
+        {
+            "nombre": "Ana Gómez",
+            "rol": "Moderadora"
+        }
+    ],
+    "eventDescript": "desarrollos"
+}

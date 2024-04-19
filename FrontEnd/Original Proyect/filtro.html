@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <title>MuniEvents</title>
+    <!-- Enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="estilos/filtrocss.css" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    <header class="header-image">
+      <img src="img/logo.png" alt="Header Image" class="img-fluid" />
+    </header>
+
+    <!--INICIO DE LA BARRA DE NAVEGACION LOGEADO-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="iniciologeado.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="noticia.html">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="suscripcionTrimestral.html"
+                >Suscripción</a
+              >
+            </li>
+          </ul>
+          <form
+            class="form-inline my-2 my-lg-0"
+            action="buscador.html"
+            method="GET"
+          >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Buscar
+            </button>
+          </form>
+          <div class="dropdown ml-2">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                alt="Imagen de Perfil"
+                class="rounded-circle"
+                style="width: 30px; height: 30px"
+              />
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="perfil.html">Perfil</a>
+              <a class="dropdown-item" href="#">Configuración</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="index.html"
+                >Cerrar Sesión</a
+              >
+            </div>
+          </div>
+          <img
+            src="./img/moneda.webp"
+            alt="Descripción de la imagen"
+            style="max-width: 30px; max-height: auto"
+          />
+          <p>200</p>
+        </div>
+      </div>
+    </nav>
+    <!--FIN DE LA BARRA DE NAVEGACION LOGEADO-->
+
+    <!-- Contenido de Resultado -->
+    <div class="container">
+      <div class="row">
+        <!-- BEGIN SEARCH RESULT -->
+        <div class="col-md-12">
+          <div class="grid search">
+            <div class="grid-body">
+              <div class="row">
+                <!-- BEGIN FILTERS -->
+                <div class="col-md-3">
+                  <h2 class="grid-title">
+                    <i class="fa fa-filter"></i> Filtros
+                  </h2>
+                  <hr />
+
+                  <!-- BEGIN FILTER BY CATEGORY -->
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="categoryHeading">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target="#categoryCollapse"
+                          aria-expanded="true"
+                          aria-controls="categoryCollapse"
+                        >
+                          Categorías
+                        </button>
+                      </h4>
+                      <div
+                        id="categoryCollapse"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="categoryHeading"
+                        data-parent="#accordionExample"
+                      >
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Arte</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Tecnología</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Videojuegos</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Danza</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Música</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END FILTER BY CATEGORY -->
+
+                  <!-- BEGIN FILTER BY MUNICIPALITY -->
+                  <div class="accordion" id="accordionExample2">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="municipalityHeading">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target="#municipalityCollapse"
+                          aria-expanded="true"
+                          aria-controls="municipalityCollapse"
+                        >
+                          Municipios
+                        </button>
+                      </h4>
+                      <div
+                        id="municipalityCollapse"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="municipalityHeading"
+                        data-parent="#accordionExample2"
+                      >
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" /> San
+                            Boi</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" /> Sant
+                            Just</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" />
+                            Corenlla</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" /> Sant
+                            Feliu</label
+                          >
+                        </div>
+                        <div class="checkbox">
+                          <label
+                            ><input type="checkbox" class="icheck" /> Sant
+                            Joan</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END FILTER BY MUNICIPALITY -->
+
+                  <div class="padding"></div>
+                </div>
+                <!-- END FILTERS -->
+                <!-- BEGIN RESULT -->
+                <div class="col-md-9">
+                  <h2><i class="fa fa-file-o"></i> Resultados</h2>
+                  <hr />
+                  <!-- BEGIN SEARCH INPUT -->
+
+                  <!-- END SEARCH INPUT -->
+                  <p>Mostrando resultados para Arte</p>
+
+                  <div class="padding"></div>
+
+                  <div class="row">
+                    <!-- BEGIN ORDER RESULT -->
+                    <div class="col-sm-6">
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-default dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          Ordenar por <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Name</a></li>
+                          <li><a href="#">Date</a></li>
+                          <li><a href="#">View</a></li>
+                          <li><a href="#">Rating</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- END ORDER RESULT -->
+
+                    <div class="col-md-6 text-right">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default active">
+                          <i class="fa fa-list"></i>
+                        </button>
+                        <button type="button" class="btn btn-default">
+                          <i class="fa fa-th"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- BEGIN TABLE RESULT -->
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <tbody>
+                        <tr>
+                          <td class="number text-center">1</td>
+                          <td class="image">
+                            <img
+                              src="./img/arte_flamenco.avif"
+                              alt=""
+                            />
+                          </td>
+                          <td class="product">
+                            <strong>Arte Flamenco</strong><br />Espectáculo + entrada al museo.
+                          </td>
+                          <td class="rate text-right">
+                            
+                          </td>
+                          <td class="price text-right">30€</td>
+                        </tr>
+                        <tr>
+                          <td class="number text-center">2</td>
+                          <td class="image">
+                            <img
+                              src="./img/arte_visita_guiada.avif"
+                              alt=""
+                            />
+                          </td>
+                          <td class="product">
+                            <strong>Visita guiada a la Real Academia de Ciencias y Artes</strong><br />Conoce esta institución, con más de 250 años de historia.
+                          </td>
+                          <td class="rate text-right">
+                           
+                          </td>
+                          <td class="price text-right">20€</td>
+                        </tr>
+                        <tr>
+                          <td class="number text-center">3</td>
+                          <td class="image">
+                            <img
+                              src="./img/museo_europeo.avif"
+                              alt=""
+                            />
+                          </td>
+                          <td class="product">
+                            <strong>Entradas para Museo Europeo de Arte Moderno</strong><br />El único museo dedicado específicamente a la figuración contemporánea.
+                          </td>
+                          <td class="rate text-right">
+                            
+                          </td>
+                          <td class="price text-right">50€</td>
+                        </tr>
+                        <tr>
+                          <td class="number text-center">4</td>
+                          <td class="image">
+                            <img
+                              src="./img/museo_arte.avif"
+                              alt=""
+                            />
+                          </td>
+                          <td class="product">
+                            <strong>Visita el Museo de Arte Contemporáneo de Barcelona</strong><br />Visitar el Museo Europeo de Arte Moderno es la actividad perfecta para amigos.
+                          </td>
+                          <td class="rate text-right">
+                            
+                          </td>
+                          <td class="price text-right">30€</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- END TABLE RESULT -->
+                </div>
+                <!-- END RESULT -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END SEARCH RESULT -->
+      </div>
+    </div>
+
+    <!--Footer de la pagina-->
+    <footer class="bg-dark footer">
+      <div class="footer-top py-8">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-lg-8 pe-xxl-10">
+              <div class="row gy-5">
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">MuniEvents</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Sobre nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">Acerca de</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Servicio al Cliente</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Política de privacidad</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Política de cookies</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Terminos y condiciones</a
+                      >
+                    </li>
+                    <li><a class="text-white text-opacity-75" href="#"></a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">Necesitas Ayuda?</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Contacta con nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Preguntas frecuentes</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#">Ofertas</a>
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Nuestros eventos</a
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="img/generalitat.img.png"
+                        alt="Descripción de la imagen"
+                        style="max-width: 100px; max-height: auto"
+                      />
+                    </li>
+                    <li>
+                      <img
+                        src="img/ajuntament.cornellaimg.jpg"
+                        alt="Descripción de la imagen"
+                        style="max-width: 100px; max-height: auto"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <h5 class="text-white footer-title-01 fs-5">
+                Suscríbete a nuestra newsletter y obtén un 15% de descuento en
+                tu próximo compra.
+              </h5>
+              <div>
+                <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
+                  <input
+                    type="email"
+                    class="form-control rounded border-0"
+                    placeholder="Tu email"
+                  />
+                  <button class="btn btn-secondary flex-shrink-0" type="submit">
+                    Suscribete
+                  </button>
+                </form>
+              </div>
+              <div class="social-icons text-center">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer-bottom small py-3 border-top border-white border-opacity-10"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start py-1">
+              <p class="m-0 text-white text-opacity-75">
+                © 2024 copyright<a class="text-reset" href="#"
+                  >MuniEvents.com</a
+                >
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end py-1">
+              <ul
+                class="nav justify-content-center justify-content-md-end list-unstyled footer-link-01 m-0"
+              >
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75"
+                    >Privacidad &amp; Politicas</a
+                  >
+                </li>
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75"
+                    >Preguntas y respuestas</a
+                  >
+                </li>
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75">Entrevistas</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--INICIO DE ENLACES A BOOSTRAP A JS Y JQUERY(NECESARIOS PARA ALGUNOS COMPONENTES) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--FIN DE ENLACES A BOOSTRAP A JS Y JQUERY(NECESARIOS PARA ALGUNOS COMPONENTES) -->
+  </body>
+</html>

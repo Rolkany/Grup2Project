@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <title>Buscador</title>
+    <!-- INICIO LINK CSS -->
+    <link rel="stylesheet" href="./estilos/buscadorcss.css" />
+    <!-- FIN LINK CSS -->
+
+    <!-- INICIO ENLACES CDN -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- FIN ENLACES CDN -->
+  </head>
+  <!--INICIO CABECERA-->
+  <header class="header-image">
+    <img src="img/logo.png" alt="Header Image" class="img-fluid" />
+  </header>
+  <!--FIN CABECERA-->
+
+  <body>
+    <!-- INICIO BARRA DE NAVEGACION SIN LOGEAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="noticiasinlogear.html">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="suscripcionTrimestralsinlogear.html"
+                >Suscripción</a
+              >
+            </li>
+          </ul>
+          <form
+            class="form-inline my-2 my-lg-0"
+            action="buscadorsinlogear.html"
+            method="GET"
+          >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Buscar
+            </button>
+          </form>
+          <form
+            class="form-inline mx-1 my-2 my-lg-0"
+            action="login.html"
+            method="GET"
+          >
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- FIN DE LA BARRA DE NAVEGACION SIN LOGEAR -->
+
+    <div class="container bootstrap">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ibox float-e-margins">
+            <div class="ibox-content">
+              <div class="search-form">
+                <form action="#" method="get">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Buscar"
+                      name="search"
+                      class="form-control input-lg"
+                    />
+                    <div class="input-group-btn">
+                      <button class="btn btn-primary">
+                        <a
+                          href="filtrosinlogear.html"
+                          style="color: white; text-decoration: none"
+                        >
+                          Filtrar
+                        </a>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="hr-line-dashed"></div>
+              <div class="search-result">
+                <h3><a href="#">Barcelona</a></h3>
+              </div>
+
+              <div class="hr-line-dashed"></div>
+              <div class="search-result">
+                <h3><a href="#">Madrid</a></h3>
+              </div>
+              <div class="hr-line-dashed"></div>
+
+              <div class="search-result">
+                <h3><a href="#">Cornellà</a></h3>
+              </div>
+              <div class="hr-line-dashed"></div>
+
+              <div class="search-result">
+                <h3><a href="#">Montcada i Reixac</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido de la página -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+          <div class="card card-small">
+            <div class="thumbnail">
+              <img src="./img/theproducers.jpg" alt="Imagen de la tarjeta 1" />
+            </div>
+            <div class="card-info">
+              <div class="moving">
+                <h3>The Producers</h3>
+                <p>
+                  El musical de Manu Guix y Àngel Llàcer, profesores de
+                  Operación Triunfo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+          <div class="card card-small">
+            <div class="thumbnail">
+              <img src="./img/torres.jpg" alt="Imagen de la tarjeta 2" />
+            </div>
+            <div class="card-info">
+              <div class="moving">
+                <h3>Torre Glorias</h3>
+                <p>
+                  Entrada a la futurista Torre de las Glòries, de Jean Nouvel.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+          <div class="card card-small">
+            <div class="thumbnail">
+              <img src="./img/sanvalentin.jpg" alt="Imagen de la tarjeta 3" />
+            </div>
+            <div class="card-info">
+              <div class="moving">
+                <h3>Planes para celebrar San Valentín</h3>
+                <p>Un concierto o una obra de teatro</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contenido de la página -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <!-- Card 1 -->
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <!-- Card 2 -->
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <!-- Card 3 -->
+        </div>
+      </div>
+    </div>
+
+    <!--Footer de la pagina-->
+    <footer class="bg-dark footer">
+      <div class="footer-top py-8">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-lg-8 pe-xxl-10">
+              <div class="row gy-5">
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">MuniEvents</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Sobre nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">Acerca de</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Servicio al Cliente</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Política de privacidad</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Política de cookies</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Terminos y condiciones</a
+                      >
+                    </li>
+                    <li><a class="text-white text-opacity-75" href="#"></a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <h5 class="text-white footer-title-01">Necesitas Ayuda?</h5>
+                  <ul class="list-unstyled footer-link-01 m-0">
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Contacta con nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Preguntas frecuentes</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#">Ofertas</a>
+                    </li>
+                    <li>
+                      <a class="text-white text-opacity-75" href="#"
+                        >Nuestros eventos</a
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="img/generalitat.img.png"
+                        alt="Descripción de la imagen"
+                        style="max-width: 100px; max-height: auto"
+                      />
+                    </li>
+                    <li>
+                      <img
+                        src="img/ajuntament.cornellaimg.jpg"
+                        alt="Descripción de la imagen"
+                        style="max-width: 100px; max-height: auto"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <h5 class="text-white footer-title-01 fs-5">
+                Suscríbete a nuestra newsletter y obtén un 15% de descuento en
+                tu próximo compra.
+              </h5>
+              <div>
+                <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
+                  <input
+                    type="email"
+                    class="form-control rounded border-0"
+                    placeholder="Tu email"
+                  />
+                  <button class="btn btn-secondary flex-shrink-0" type="submit">
+                    Suscribete
+                  </button>
+                </form>
+              </div>
+              <div class="social-icons text-center">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer-bottom small py-3 border-top border-white border-opacity-10"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start py-1">
+              <p class="m-0 text-white text-opacity-75">
+                © 2024 copyright<a class="text-reset" href="#"
+                  >MuniEvents.com</a
+                >
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end py-1">
+              <ul
+                class="nav justify-content-center justify-content-md-end list-unstyled footer-link-01 m-0"
+              >
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75"
+                    >Privacidad &amp; Politicas</a
+                  >
+                </li>
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75"
+                    >Preguntas y respuestas</a
+                  >
+                </li>
+                <li class="p-0 mx-3 ms-md-0 me-md-3">
+                  <a href="#" class="text-white text-opacity-75">Entrevistas</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--INICIO DE ENLACES A BOOSTRAP A JS Y JQUERY(NECESARIOS PARA ALGUNOS COMPONENTES) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--FIN DE ENLACES A BOOSTRAP A JS Y JQUERY(NECESARIOS PARA ALGUNOS COMPONENTES) -->
+  </body>
+</html>

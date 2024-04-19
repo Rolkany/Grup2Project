@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  background-color: rgb(217, 70, 239);
+  font-family: "Nunito Sans", sans-serif;
+  color: #ffffff;
+}
+
+button,
+h1 {
+  font-family: "Russo One", sans-serif !important;
+  color: #ffffff;
+}
+
+.containerform {
+  margin-top: 20vh;
+}
+
+.containerlogo {
+  display: grid;
+  place-content: center;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+h1 {
+  margin: 40px 24px 0;
+  font-size: 2em;
+}
+
+strong {
+  color: #ffff;
+}
+
+.form-groupt {
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+.btn {
+  background-color: #4b0f54;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.form-group {
+  margin: 24px;
+}
+
+.btn-primary {
+  background-color: #4e1057 !important;
+  border: 1px solid #ffffff;
+  width: 105px;
+  margin: 0 auto !important;
+  box-shadow: 0px 5px 8px rgba(98, 98, 98, 0.5);
+}
+
+.text-center P {
+  margin: 1rem 0;
+}

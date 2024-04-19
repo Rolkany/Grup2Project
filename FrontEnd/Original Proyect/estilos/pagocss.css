@@ -1,0 +1,93 @@
+header {
+    background-color: #233142;
+  }
+
+
+  .header-image {
+    text-align: center;
+  }
+   
+ 
+
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+}
+
+
+ 
+
+ a {
+     text-decoration: none;
+     background-color: transparent;
+ }
+
+ .py-8 {
+     padding-top: 3.5rem !important;
+     padding-bottom: 3.5rem !important;
+ }
+
+ .footer-link-01 li+li {
+     padding-top: 0.8rem;
+ }
+
+ .footer-title-01 {
+     font-size: 16px;
+     margin: 0 0 20px;
+     font-weight: 600;
+ }
+
+ .footer-title-01 {
+     font-size: 16px;
+     margin: 0 0 20px;
+     font-weight: 600
+ }
+
+ .footer-link-01 li+li {
+     padding-top: .8rem
+ }
+
+ @media (max-width: 991.98px) {
+     .footer-link-01 li+li {
+         padding-top: .6rem
+     }
+ }
+
+
+
+ .footer-link-01 a {
+     position: relative;
+     display: inline-block;
+     vertical-align: top
+ }
+
+ .footer-link-01 a:after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: auto;
+     right: 0;
+     width: 0;
+     height: 1px;
+     transition: ease all .35s;
+     background: currentColor
+ }
+
+ .footer-link-01 a:hover:after {
+     left: 0;
+     right: auto;
+     width: 100%
+ }
+
+ .footer{
+    margin-top: 50px;
+ }
