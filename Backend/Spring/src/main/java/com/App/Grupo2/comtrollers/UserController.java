@@ -23,8 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 public class UserController {
 
-    @Autowired
-    private UserRepository ur;
+    UserRepository ur;
 
     /* ----- Constructor que inicializa el repositorio de usuarios ----- */
     UserController(UserRepository ur) {

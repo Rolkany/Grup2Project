@@ -5,7 +5,6 @@ package com.App.Grupo2.repositories;
 import com.App.Grupo2.models.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
 public interface UserRepository extends JpaRepository<Users, Integer> {
-
+    Users findByEmail(String email);
 }
