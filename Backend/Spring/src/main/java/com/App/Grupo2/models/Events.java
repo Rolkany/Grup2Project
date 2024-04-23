@@ -1,19 +1,15 @@
 /* ---------- Paquete que contiene las clases de repositorio ---------- */
 package com.App.Grupo2.models;
 
+import lombok.Data;
 /* ---------- Importaciones ---------- */
-import lombok.Getter;
-import lombok.Setter;
 import jakarta.persistence.Id;
-import lombok.NoArgsConstructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 /* ---------- Generar constructores, getters, y setters ---------- */
-@NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 
 /*

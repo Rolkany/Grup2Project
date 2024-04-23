@@ -1,16 +1,10 @@
 package com.App.Grupo2.models;
 
 /* ---------- Importaciones ---------- */
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /* ---------- Generar constructores, getters, y setters ---------- */
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 
 public class UserLogin {
     private String email;
