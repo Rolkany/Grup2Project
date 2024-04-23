@@ -79,18 +79,16 @@ sup {
 img {
   border-style: none;
 }
+input {
+  min-width: 100px;
+  max-width: 300px;
+}
 
 button,
-input,
 optgroup,
 select,
 textarea {
   margin: 0;
-}
-
-body div {
-  display: flex;
-  justify-content: center;
 }
 
 img {
@@ -127,4 +125,30 @@ h1 {
 label {
   text-align: left;
   color: #ffffff;
+}
+
+.containerInput,
+.container {
+  display: flex;
+  flex-direction: column; /* Alinea el label por encima del input */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra los elementos en el eje vertical */
+  padding: 10px; /* Añade espacio alrededor del contenido */
+}
+
+.pt-2 {
+  text-align: center; /* Centra el texto del label */
+  margin-bottom: 10px; /* Espacio entre el label y el input */
+}
+
+.input-centrado {
+  width: 50%; /* Controla el ancho del input */
+  text-align: center; /* Centra el texto dentro del input */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.input-centrado:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
 }
