@@ -56,7 +56,7 @@ public class ReviewController {
         if (revTemp == null) {
             return "No encontrado";
         }
-        revTemp.setDesc(entity.getDesc());
+        revTemp.setDes(entity.getDes());
         revTemp.setRatingReview(entity.getRatingReview());
         this.rr.save(entity);
         return "Review actualizada";
