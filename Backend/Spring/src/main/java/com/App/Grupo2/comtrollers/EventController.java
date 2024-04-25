@@ -73,7 +73,7 @@ public class EventController {
         eventTemp.setImgUrl(event.getImgUrl());
         eventTemp.setTitle(event.getTitle());
         eventTemp.setEventDate(event.getEventDate());
-        event.setDesc(event.getDesc());
+        event.setDes(event.getDes());
         this.er.save(event);
         return "Evento actualizado";
     }
