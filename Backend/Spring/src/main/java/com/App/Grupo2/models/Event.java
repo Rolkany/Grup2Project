@@ -8,20 +8,21 @@ import lombok.Data;
 
 @Data
 @Entity
-public class User {
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String userName;
-    private String email;
-    private String pass;
     private String imgUrl;
-    private String firstName;
-    private String lastName;
-    private int age;
+    private String title;
+    private String eventDate;
     private String desc;
-    private int phone;
-    private String address;
-    private int points;
+    private int createdBy;
+    private int language_id;
 
 }
+
+// Codigo por implementar a la clase
+// @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
+// true)
+// @JoinColumn(name = "event_id")
+// private Set<Reviews> reviews = new HashSet<>();

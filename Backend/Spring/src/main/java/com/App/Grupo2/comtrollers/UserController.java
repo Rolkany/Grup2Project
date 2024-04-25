@@ -5,8 +5,8 @@ package com.App.Grupo2.comtrollers;
 import java.util.List;
 import java.util.Optional;
 
+import com.App.Grupo2.models.User;
 import com.App.Grupo2.models.UserLogin;
-import com.App.Grupo2.models.Users;
 import com.App.Grupo2.repositories.UserRepository;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,14 +35,14 @@ public class UserController {
 
     /* ----- Maneja las solicitudes GET a /users ----- */
     @GetMapping("/users")
-    public List<Users> gelAll() {
+    public List<User> getAll() {
         return this.ur.findAll();
     }
 
     /* ----- Maneja las solicitudes GET a /users/id/{id} por id ----- */
     @GetMapping("/users/id/{id}")
-    public Users oneById(@PathVariable("id") int id) {
-        Optional<Users> op = this.ur.findById(id);
+    public User oneById(@PathVariable("id") int id) {
+        Optional<User> op = this.ur.findById(id);
         if (op.isEmpty()) {
             return null;
         }
@@ -51,34 +51,33 @@ public class UserController {
 
     /* ----- Maneja las solicitudes POST a /users ----- */
     @PostMapping("/users")
-    public int postMethodName(@RequestBody Users newUser) {
-        Users user = this.ur.saveAndFlush(newUser);
+    public int addUser(@RequestBody User newUser) {
+        User user = this.ur.saveAndFlush(newUser);
         return user.getId();
     }
-     
+
     /* ----- Maneja las solicitudes POST a /users/login ----- */
     @PostMapping("/users/login")
     public int login(@RequestBody UserLogin login) {
-        Users u=this.ur.findByEmail(login.getEmail());
-        if(u.getPass().equals(login.getPass())){
+        User u = this.ur.findByEmail(login.getEmail());
+        if (u.getPass().equals(login.getPass())) {
 
             return u.getId();
         }
         return -1;
     }
 
-
     /* ----- Maneja las solicitudes DELETE a /users/{id}s ----- */
     @DeleteMapping("/users/{id}")
     public String deleteUserById(@PathVariable("id") int id) {
         this.ur.deleteById(id);
-        return "User eliminated";
+        return "Usuario eliminado";
     }
 
     /* ----- Maneja las solicitudes PUT a /users/{id} ----- */
     @PutMapping("/users/{id}")
-    public String putUser(@PathVariable int id, @RequestBody Users user) {
-        Users userTemp = this.oneById(id);
+    public String putUser(@PathVariable int id, @RequestBody User user) {
+        User userTemp = this.oneById(id);
         if (userTemp == null) {
             return "No encontrado";
         }
@@ -86,7 +85,6 @@ public class UserController {
         userTemp.setLastName(user.getLastName());
         userTemp.setEmail(user.getEmail());
         userTemp.setUserName(user.getUserName());
-        userTemp.setCoin(user.getCoin());
         this.ur.save(user);
         return "Usuario actualizado";
     }

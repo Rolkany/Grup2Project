@@ -4,8 +4,10 @@ package com.App.Grupo2.comtrollers;
 /* ---------- Importaciones ---------- */
 import java.util.List;
 import java.util.Optional;
-import com.App.Grupo2.models.Events;
-import com.App.Grupo2.repositories.EventsRepository;
+
+import com.App.Grupo2.models.Event;
+
+import com.App.Grupo2.repositories.EventRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,25 +24,25 @@ import org.springframework.web.bind.annotation.RestController;
  * ----- Clase EventsController que maneja las solicitudes relacionadas con los
  * eventos --
  */
-public class EventsController {
+public class EventController {
 
-    EventsRepository er;
+    EventRepository er;
 
     /* ----- Constructor que inicializa el repositorio de eventos ----- */
-    EventsController(EventsRepository er) {
+    EventController(EventRepository er) {
         this.er = er;
     }
 
     /* ----- Maneja las solicitudes GET a /events ----- */
     @GetMapping("/events")
-    public List<Events> getAll() {
+    public List<Event> getAll() {
         return this.er.findAll();
     }
 
     /* ----- Maneja las solicitudes GET a /events/id/{id} por id ----- */
     @GetMapping("/events/id/{id}")
-    public Events oneById(@PathVariable("id") int id) {
-        Optional<Events> opE = this.er.findById(id);
+    public Event oneById(@PathVariable("id") int id) {
+        Optional<Event> opE = this.er.findById(id);
         if (opE.isEmpty()) {
             return null;
         }
@@ -49,8 +51,8 @@ public class EventsController {
 
     /* ----- Maneja las solicitudes POST a /events ----- */
     @PostMapping("/events")
-    public int addEvents(@RequestBody Events newEvent) {
-        Events event = this.er.saveAndFlush(newEvent);
+    public int addEvents(@RequestBody Event newEvent) {
+        Event event = this.er.saveAndFlush(newEvent);
         return event.getId();
     }
 
@@ -63,15 +65,15 @@ public class EventsController {
 
     /* ----- Maneja las solicitudes PUT a /events/{id} ----- */
     @PutMapping("/events/{id}")
-    public String putEvent(@PathVariable int id, @RequestBody Events event) {
-        Events eventTemp = this.oneById(id);
+    public String putEvent(@PathVariable int id, @RequestBody Event event) {
+        Event eventTemp = this.oneById(id);
         if (eventTemp == null) {
             return "No encontrado";
         }
-        eventTemp.setDate(event.getDate());
+        eventTemp.setImgUrl(event.getImgUrl());
         eventTemp.setTitle(event.getTitle());
-        eventTemp.setAvailableTicket(event.getAvailableTicket());
-        event.setPrice(event.getPrice());
+        eventTemp.setEventDate(event.getEventDate());
+        event.setDesc(event.getDesc());
         this.er.save(event);
         return "Evento actualizado";
     }
