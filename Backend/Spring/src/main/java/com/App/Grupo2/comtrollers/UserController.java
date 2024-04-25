@@ -4,6 +4,8 @@ package com.App.Grupo2.comtrollers;
 /* ---------- Importaciones ---------- */
 import java.util.List;
 import java.util.Optional;
+
+import com.App.Grupo2.models.UserLogin;
 import com.App.Grupo2.models.Users;
 import com.App.Grupo2.repositories.UserRepository;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,6 +55,18 @@ public class UserController {
         Users user = this.ur.saveAndFlush(newUser);
         return user.getId();
     }
+     
+    /* ----- Maneja las solicitudes POST a /users/login ----- */
+    @PostMapping("/users/login")
+    public int login(@RequestBody UserLogin login) {
+        Users u=this.ur.findByEmail(login.getEmail());
+        if(u.getPass().equals(login.getPass())){
+
+            return u.getId();
+        }
+        return -1;
+    }
+
 
     /* ----- Maneja las solicitudes DELETE a /users/{id}s ----- */
     @DeleteMapping("/users/{id}")
