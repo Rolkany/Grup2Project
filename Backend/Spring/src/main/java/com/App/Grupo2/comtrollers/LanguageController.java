@@ -51,7 +51,7 @@ public class LanguageController {
         return "Idioma eliminado";
     }
 
-    @PutMapping("languages/{id}")
+    @PutMapping("/languages/{id}")
     public String putLanguage(@PathVariable int id, @RequestBody Language entity) {
         Language langTemp = this.oneById(id);
         if (langTemp == null) {

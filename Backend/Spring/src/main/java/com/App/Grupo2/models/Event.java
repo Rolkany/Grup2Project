@@ -18,6 +18,7 @@ public class Event {
     private String desc;
     private int createdBy;
     private int language_id;
+    // private List<User> users = new HashSet<>();
 
 }
 
