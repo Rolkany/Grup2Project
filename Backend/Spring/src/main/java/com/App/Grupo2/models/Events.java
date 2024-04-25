@@ -1,8 +1,8 @@
 /* ---------- Paquete que contiene las clases de repositorio ---------- */
 package com.App.Grupo2.models;
 
-import lombok.Data;
 /* ---------- Importaciones ---------- */
+import lombok.Data;
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
