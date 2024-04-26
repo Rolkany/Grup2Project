@@ -19,7 +19,7 @@ public class User {
     private String firstName;
     private String lastName;
     private int age;
-    private String desc;
+    private String des;
     private int phone;
     private String address;
     private int points;

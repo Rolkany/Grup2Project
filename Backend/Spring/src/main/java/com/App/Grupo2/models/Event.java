@@ -15,9 +15,10 @@ public class Event {
     private String imgUrl;
     private String title;
     private String eventDate;
-    private String desc;
+    private String des;
     private int createdBy;
     private int language_id;
+    // private List<User> users = new HashSet<>();
 
 }
 

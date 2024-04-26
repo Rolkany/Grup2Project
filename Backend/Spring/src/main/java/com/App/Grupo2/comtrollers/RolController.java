@@ -50,7 +50,7 @@ public class RolController {
         return "Rol eliminado";
     }
 
-    @PutMapping("roles/{id}")
+    @PutMapping("/roles/{id}")
     public String putRol(@PathVariable int id, @RequestBody Rol entity) {
         Rol rolTemp = this.oneById(id);
         if (rolTemp == null) {

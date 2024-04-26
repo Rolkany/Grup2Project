@@ -8,10 +8,9 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Review {
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String des;
-    private double ratingReview;
+    private String location;
 }
