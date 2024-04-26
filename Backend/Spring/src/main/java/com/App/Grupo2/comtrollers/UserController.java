@@ -3,11 +3,12 @@ package com.App.Grupo2.comtrollers;
 
 /* ---------- Importaciones ---------- */
 import java.util.List;
-import java.util.Optional;
 
 import com.App.Grupo2.models.User;
 import com.App.Grupo2.models.UserLogin;
-import com.App.Grupo2.repositories.UserRepository;
+
+import com.App.Grupo2.services.UserServices;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,66 +27,52 @@ import org.springframework.web.bind.annotation.RestController;
  */
 public class UserController {
 
-    UserRepository ur;
+    UserServices userServices;
 
     /* ----- Constructor que inicializa el repositorio de usuarios ----- */
-    UserController(UserRepository ur) {
-        this.ur = ur;
+    UserController(UserServices userServices) {
+        this.userServices = userServices;
     }
 
     /* ----- Maneja las solicitudes GET a /users ----- */
     @GetMapping("/users")
     public List<User> getAll() {
-        return this.ur.findAll();
+        return userServices.getAll();
     }
 
     /* ----- Maneja las solicitudes GET a /users/id/{id} por id ----- */
     @GetMapping("/users/id/{id}")
     public User oneById(@PathVariable("id") int id) {
-        Optional<User> op = this.ur.findById(id);
-        if (op.isEmpty()) {
-            return null;
-        }
-        return op.get();
+        return userServices.oneById(id).orElse(null);
     }
 
     /* ----- Maneja las solicitudes POST a /users ----- */
     @PostMapping("/users")
     public int addUser(@RequestBody User newUser) {
-        User user = this.ur.saveAndFlush(newUser);
+        User user = userServices.addUser(newUser);
         return user.getId();
     }
 
     /* ----- Maneja las solicitudes POST a /users/login ----- */
     @PostMapping("/users/login")
     public int login(@RequestBody UserLogin login) {
-        User u = this.ur.findByEmail(login.getEmail());
-        if (u.getPass().equals(login.getPass())) {
-
-            return u.getId();
-        }
-        return -1;
+        return userServices.login(login);
     }
 
     /* ----- Maneja las solicitudes DELETE a /users/{id}s ----- */
     @DeleteMapping("/users/{id}")
     public String deleteUserById(@PathVariable("id") int id) {
-        this.ur.deleteById(id);
+        userServices.deleteUser(id);
         return "Usuario eliminado";
     }
 
     /* ----- Maneja las solicitudes PUT a /users/{id} ----- */
     @PutMapping("/users/{id}")
-    public String putUser(@PathVariable int id, @RequestBody User user) {
-        User userTemp = this.oneById(id);
-        if (userTemp == null) {
-            return "No encontrado";
+    public String putUser(@PathVariable int id, @RequestBody User userToUpdate) {
+        User user = userServices.putUser(id, userToUpdate);
+        if (user != null) {
+            return "usuario actualizado";
         }
-        userTemp.setFirstName(user.getFirstName());
-        userTemp.setLastName(user.getLastName());
-        userTemp.setEmail(user.getEmail());
-        userTemp.setUserName(user.getUserName());
-        this.ur.save(user);
-        return "Usuario actualizado";
+        return "Usuario no encontrado";
     }
 }
