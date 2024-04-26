@@ -2,9 +2,9 @@
 package com.App.Grupo2.repositories;
 
 /* ---------- Importaciones ---------- */
-import com.App.Grupo2.models.Events;
+import com.App.Grupo2.models.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EventsRepository extends JpaRepository<Events, Integer> {
+public interface EventRepository extends JpaRepository<Event, Integer> {
 
 }

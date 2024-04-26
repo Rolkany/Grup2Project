@@ -2,9 +2,9 @@
 package com.App.Grupo2.repositories;
 
 /* ---------- Importaciones ---------- */
-import com.App.Grupo2.models.Users;
+import com.App.Grupo2.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<Users, Integer> {
-    Users findByEmail(String email);
+public interface UserRepository extends JpaRepository<User, Integer> {
+    User findByEmail(String email);
 }
