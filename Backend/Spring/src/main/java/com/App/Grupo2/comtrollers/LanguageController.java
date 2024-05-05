@@ -22,10 +22,12 @@ public class LanguageController {
 
     private final LanguageServices languageServices;
 
+    // ----- Constructor to initialize LanguageServices -----
     public LanguageController(LanguageServices languageServices) {
         this.languageServices = languageServices;
     }
 
+    // ----- Endpoint to get all locations -----
     @GetMapping("/languages")
     public List<Language> getAll() {
         return this.languageServices.getAll();
@@ -52,7 +54,7 @@ public class LanguageController {
     }
 
     // ----- Endpoint to update an existing language -----
-    @PutMapping("/language/{id}")
+    @PutMapping("/languages/{id}")
     public String putLanguage(@PathVariable int id, @RequestBody Language languageToUpdate) {
         Language language = languageServices.putLanguage(id, languageToUpdate);
         if (language != null) {
