@@ -1,65 +1,63 @@
+/* ---------- Package containing repository classes ---------- */
 package com.App.Grupo2.comtrollers;
 
+/* ---------- Imports ---------- */
 import java.util.List;
-import java.util.Optional;
-
+import com.App.Grupo2.models.Language;
+import com.App.Grupo2.services.LanguageServices;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.App.Grupo2.models.Language;
-import com.App.Grupo2.repositories.LanguageRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-
-@CrossOrigin(origins = "*")
+/* ----- Spring annotations ----- */
 @RestController
+@CrossOrigin(origins = "*")
+
 public class LanguageController {
 
-    LanguageRepository lr;
+    private final LanguageServices languageServices;
 
-    LanguageController(LanguageRepository lr) {
-        this.lr = lr;
+    public LanguageController(LanguageServices languageServices) {
+        this.languageServices = languageServices;
     }
 
     @GetMapping("/languages")
     public List<Language> getAll() {
-        return this.lr.findAll();
+        return this.languageServices.getAll();
     }
 
+    // ----- Endpoint to get a language by its ID -----
     @GetMapping("/languages/id/{id}")
     public Language oneById(@PathVariable("id") int id) {
-        Optional<Language> lp = this.lr.findById(id);
-        if (lp.isEmpty()) {
-            return null;
-        }
-        return lp.get();
+        return languageServices.oneById(id).orElse(null);
     }
 
+    // ----- Endpoint to add a new language -----
     @PostMapping("/languages")
-    public int addLanguage(@RequestBody Language entity) {
-        Language language = this.lr.saveAndFlush(entity);
-        return language.getId();
+    public int addLanguage(@RequestBody Language language) {
+        Language savedLanguage = languageServices.addLanguage(language);
+        return savedLanguage.getId();
     }
 
+    // ----- Endpoint to delete a language by its ID -----
     @DeleteMapping("/languages/{id}")
-    public String deleteLanguage(@PathVariable("id") int id) {
-        this.lr.deleteById(id);
-        return "Idioma eliminado";
+    public String deleteLanguageById(@PathVariable("id") int id) {
+        languageServices.deleteLanguage(id);
+        return "Language deleted";
     }
 
-    @PutMapping("/languages/{id}")
-    public String putLanguage(@PathVariable int id, @RequestBody Language entity) {
-        Language langTemp = this.oneById(id);
-        if (langTemp == null) {
-            return "No encontrado";
+    // ----- Endpoint to update an existing language -----
+    @PutMapping("/language/{id}")
+    public String putLanguage(@PathVariable int id, @RequestBody Language languageToUpdate) {
+        Language language = languageServices.putLanguage(id, languageToUpdate);
+        if (language != null) {
+            return "Language updated";
         }
-        langTemp.setLanguage(entity.getLanguage());
-        this.lr.save(entity);
-        return "Idioma actualizado";
+        return "Language not found";
     }
-
 }

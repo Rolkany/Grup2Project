@@ -13,6 +13,7 @@ import com.App.Grupo2.repositories.LocationRepository;
 
 public class LocationServices {
 
+    // Repository for managing Location data
     private final LocationRepository locationRepository;
 
     // Constructor for LocationServices

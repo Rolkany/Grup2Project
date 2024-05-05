@@ -50,7 +50,7 @@ public class LocationController {
     @DeleteMapping("/locations/{id}")
     public String deleteLocationById(@PathVariable("id") int id) {
         locationServices.deleteLocation(id);
-        return "Localizacion deleted";
+        return "Location deleted";
     }
 
     // ----- Endpoint to update an existing location -----
