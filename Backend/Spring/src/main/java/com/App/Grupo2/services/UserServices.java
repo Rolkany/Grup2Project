@@ -51,6 +51,7 @@ public class UserServices {
         Optional<User> userTemp = this.oneById(id);
         if (userTemp.isPresent()) {
             User user = userTemp.get();
+            user.setUserName(userToUpdate.getUserName());
             user.setUserName(userToUpdate.getFirstName());
             user.setEmail(userToUpdate.getEmail());
             user.setImgUrl(userToUpdate.getImgUrl());
