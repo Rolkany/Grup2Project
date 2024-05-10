@@ -12,41 +12,38 @@ import com.App.Grupo2.repositories.EventRepository;
 @Service
 public class EventServices {
     private EventRepository eventRepository;
-    
-    EventServices(EventRepository eventRepository){
-        this.eventRepository=eventRepository;
+
+    EventServices(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
 
     }
 
-    public List<Event> getAll(){
+    public List<Event> getAll() {
 
         return eventRepository.findAll();
 
-        }
+    }
 
-    public Optional<Event> oneById(int id){
-     
+    public Optional<Event> oneById(int id) {
+
         return eventRepository.findById(id);
 
     }
 
-    public Event addEvent(Event newEvent){
-    
-        return eventRepository.saveAndFlush(newEvent);
-}
-    
-      public String deleteEventById(int id){
+    public Event addEvent(Event newEvent) {
 
-        if(eventRepository.existsById(id)){
+        return eventRepository.saveAndFlush(newEvent);
+    }
+
+    public String deleteEventById(int id) {
+
+        if (eventRepository.existsById(id)) {
             eventRepository.deleteById(id);
             return "Evento eliminado";
         }
 
         return "Evento no encontrado";
 
-      }
+    }
 
-      
-
-    
 }
