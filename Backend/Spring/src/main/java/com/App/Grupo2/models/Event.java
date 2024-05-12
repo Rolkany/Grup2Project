@@ -30,14 +30,14 @@ public class Event {
     @OneToOne
     @JoinColumn(name = "createdBy", referencedColumnName = "id")
     private User createdBy;
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "language", cascade = CascadeType.ALL)
     private List<Language> languages = new ArrayList<>();
 
 }
 
 // el campo createdBy tiene una relacion oney to one con la entidad User✅
 
-// el campo language_id tiene una relacion one to many con la tabla languages
+// el campo language_id tiene una relacion one to many con la tabla languages✅
 
 // Codigo por implementar a la clase
 // @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
