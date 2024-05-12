@@ -61,6 +61,7 @@ public class UserServices {
             user.setDes(userToUpdate.getDes());
             user.setPhone(userToUpdate.getPhone());
             user.setAddress(userToUpdate.getAddress());
+            user.setPoints(userToUpdate.getPoints());
             return userRepository.save(user);
         }
         return null;
