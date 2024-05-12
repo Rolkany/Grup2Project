@@ -1,9 +1,20 @@
 package com.App.Grupo2.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.JoinTable;
+//import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+//import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -16,14 +27,21 @@ public class Event {
     private String title;
     private String eventDate;
     private String des;
-    private int createdBy;
-    private int language_id;
-    // private List<User> users = new HashSet<>();
+    @OneToOne
+    @JoinColumn(name = "createdBy", referencedColumnName = "id")
+    private User createdBy;
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Language> languages = new ArrayList<>();
 
 }
+
+// el campo createdBy tiene una relacion oney to one con la entidad User✅
+
+// el campo language_id tiene una relacion one to many con la tabla languages
 
 // Codigo por implementar a la clase
 // @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
 // true)
 // @JoinColumn(name = "event_id")
 // private Set<Reviews> reviews = new HashSet<>();
+// private List<User> users = new HashSet<>();

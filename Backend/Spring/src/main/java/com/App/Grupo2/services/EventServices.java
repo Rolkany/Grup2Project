@@ -56,7 +56,6 @@ public class EventServices {
             event.setDes(eventToUpdate.getEventDate());
             event.setDes(eventToUpdate.getDes());
             event.setCreatedBy(eventToUpdate.getCreatedBy());
-            event.setLanguage_id(eventToUpdate.getLanguage_id());
             return eventRepository.save(event);
         }
         return null;
