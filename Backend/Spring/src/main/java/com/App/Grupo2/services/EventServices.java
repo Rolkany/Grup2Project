@@ -46,4 +46,20 @@ public class EventServices {
 
     }
 
+    public Event putEvent(int id, Event eventToUpdate) {
+        Optional<Event> eventTemp = this.oneById(id);
+        if (eventTemp.isPresent()) {
+            Event event = eventTemp.get();
+            event.setImgUrl(eventToUpdate.getImgUrl());
+            event.setTitle(eventToUpdate.getTitle());
+            event.setEventDate(eventToUpdate.getEventDate());
+            event.setDes(eventToUpdate.getEventDate());
+            event.setDes(eventToUpdate.getDes());
+            event.setCreatedBy(eventToUpdate.getCreatedBy());
+            event.setLanguage_id(eventToUpdate.getLanguage_id());
+            return eventRepository.save(event);
+        }
+        return null;
+    }
+
 }
