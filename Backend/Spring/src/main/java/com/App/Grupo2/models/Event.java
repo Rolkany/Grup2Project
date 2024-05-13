@@ -1,10 +1,12 @@
 package com.App.Grupo2.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,8 +32,10 @@ public class Event {
     @OneToOne
     @JoinColumn(name = "createdBy", referencedColumnName = "id")
     private User createdBy;
-    @OneToMany(mappedBy = "language", cascade = CascadeType.ALL)
-    private List<Language> languages = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "language")
+    private Set<Language> languages = new HashSet<>();
 
 }
 

@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+//import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -25,7 +25,7 @@ public class User {
     private String address;
     private int points;
 
-    @OneToOne(mappedBy = "createdBy")
-    private Event event;
+    // @OneToOne(mappedBy = "createdBy")
+    // private Event event;
 
 }
