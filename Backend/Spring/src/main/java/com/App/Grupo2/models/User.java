@@ -25,7 +25,4 @@ public class User {
     private String address;
     private int points;
 
-    // @OneToOne(mappedBy = "createdBy")
-    // private Event event;
-
 }
