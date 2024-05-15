@@ -1,10 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import UserContext from './UserContext';
+import Profile from './Profile';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const { setUserId } = useContext(UserContext);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -29,55 +33,59 @@ const Login = () => {
       if (!response.ok) {
         throw new Error('Fallo en el proceso de login');
       }
+      //Recibimos la respuesta del servidor
+      const dataResponse = await response.json();
+      console.log('La respuesta es: ', dataResponse);
+      const userId = dataResponse;
+      setUserId(userId);
+      setLoggedIn(true);
     } catch (error) {
       console.error('Error en el login: ', error.message);
     }
-    //Aqui las variables se pueden enviar al servidor, en este caso haran match con el DTO de User
+    //Logs
     console.log('email: ', email);
     console.log('pass: ', pass);
     console.log(userLogin);
+
+    //Limpieza inputs
     setEmail('');
     setPass('');
   };
 
   return (
     <>
-      {/* <div className="containerlogo">
-        <img
-          src="../assets/vertex-01.svg"
-          alt="logo"
-          width="120px"
-          className="mx-auto"
-        />
-      </div> */}
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
+      {loggedIn ? (
+        <Profile />
+      ) : (
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={pass}
-            onChange={handlePassChange}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="success" type="submit">
-          Submit
-        </Button>
-      </Form>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={pass}
+              onChange={handlePassChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="success" type="submit">
+            Submit
+          </Button>
+        </Form>
+      )}
     </>
   );
 };

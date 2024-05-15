@@ -9,11 +9,16 @@ import PropTypes from 'prop-types';
 // import Event from './components/Event';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
+import { UserProvider } from './components/UserContext';
 
 const App = () => {
   return (
     <>
-      <Login />
+      <UserProvider>
+        <div className="App">
+          <Login />
+        </div>
+      </UserProvider>
     </>
   );
 };
