@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
 import { UserProvider } from './components/UserContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (

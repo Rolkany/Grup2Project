@@ -1,0 +1,37 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura para ocupar toda la altura visible del viewport */
+  position: relative;
+}
+.login-logo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.login-form {
+  max-width: 400px;
+  padding: 20px;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-button {
+  margin-top: 20px;
+}
+body {
+  margin: 0;
+  background-color: rgb(217, 70, 239);
+  font-family: 'Nunito Sans', sans-serif;
+}

@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import { useContext, useState } from 'react';
 import UserContext from './UserContext';
 import Profile from './Profile';
+import './Login.css';
+import logo from './pepon.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -57,34 +59,41 @@ const Login = () => {
       {loggedIn ? (
         <Profile />
       ) : (
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+        <div className="login-container">
+          <div className="login-logo">
+            <img src={logo} />
+          </div>
+          <Form className="login-form" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                className="form-input"
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmailChange}
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={pass}
-              onChange={handlePassChange}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="success" type="submit">
-            Submit
-          </Button>
-        </Form>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                className="form-input"
+                type="password"
+                placeholder="Password"
+                value={pass}
+                onChange={handlePassChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button className="form-button" variant="success" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
       )}
     </>
   );

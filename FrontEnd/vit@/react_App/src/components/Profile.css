@@ -1,0 +1,33 @@
+.profile {
+  text-align: center; /* Para centrar el contenido horizontalmente */
+  padding: 30px; /* Añade espacio alrededor del contenido */
+  border: 1px solid #ccc; /* Agrega un borde para resaltar el perfil */
+  border-radius: 8px; /* Hace que los bordes sean redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  max-width: 400px; /* Limita el ancho máximo para evitar que el perfil se extienda demasiado */
+  margin: 0 auto; /* Centra el perfil horizontalmente en la página */
+}
+
+.profile-img {
+  margin-bottom: 20px; /* Añade espacio entre la imagen del perfil y el texto */
+}
+
+.profile img {
+  width: 100px; /* Establece el ancho de la imagen del perfil */
+  height: 100px; /* Establece la altura de la imagen del perfil */
+  border: 1px solid white;
+  border-radius: 50%; /* Hace que la imagen del perfil sea redonda */
+  object-fit: cover; /* Escala la imagen para que se ajuste al contenedor */
+}
+
+.profile h2 {
+  margin-bottom: 10px; /* Añade espacio entre el título y el texto siguiente */
+}
+
+.profile h3 {
+  margin-bottom: 20px; /* Añade espacio entre el texto de bienvenida y el siguiente elemento */
+}
+
+.profile p {
+  margin-bottom: 10px; /* Añade espacio entre los párrafos */
+}
