@@ -8,8 +8,10 @@ import {
 import logo from './image_Vertex.png';
 import { useContext, useState } from 'react';
 import UserContext from './UserContext';
-import Profile from './Profile';
+//import Profile from './Profile';
+
 import './NewLogin.css';
+import NewProfile from './NewProfile';
 
 const NewLogin = () => {
   const [email, setEmail] = useState('');
@@ -31,6 +33,7 @@ const NewLogin = () => {
 
     try {
       const response = await fetch('http://localhost:8080/users/login', {
+        //aqui ahora no esta apuntando a la BBDD del proyecto (pero si a una gemela)
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +65,7 @@ const NewLogin = () => {
   return (
     <>
       {loggedIn ? (
-        <Profile />
+        <NewProfile />
       ) : (
         <MDBContainer className="my-5 gradient-form">
           <MDBRow>
@@ -75,34 +78,36 @@ const NewLogin = () => {
 
                 <p>Accede a tu cuenta</p>
 
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Correo electrónico"
-                  id="form1"
-                  type="email"
-                  value={email}
-                  onChange={handleEmailChange}
-                />
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Contraseña"
-                  id="form2"
-                  type="password"
-                  value={pass}
-                  onChange={handlePassChange}
-                />
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Correo electrónico"
+                    id="form1"
+                    type="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Contraseña"
+                    id="form2"
+                    type="password"
+                    value={pass}
+                    onChange={handlePassChange}
+                  />
 
-                <div className="text-center pt-1 mb-5 pb-1">
-                  <MDBBtn
-                    onSubmit={handleSubmit}
-                    className="mb-4 w-100 gradient-custom-2"
-                  >
-                    Entra!
-                  </MDBBtn>
-                  <a className="text-muted" href="#!">
-                    Olvidaste tu contraseña?
-                  </a>
-                </div>
+                  <div className="text-center pt-1 mb-5 pb-1">
+                    <MDBBtn
+                      type="submit"
+                      className="mb-4 w-100 gradient-custom-2"
+                    >
+                      Entra!
+                    </MDBBtn>
+                    <a className="text-muted" href="#!">
+                      Olvidaste tu contraseña?
+                    </a>
+                  </div>
+                </form>
 
                 <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
                   <p className="mb-0">No tienes cuenta?</p>
