@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import UserContext from './UserContext';
 import Profile from './Profile';
 import './Login.css';
-import logo from './pepon.png';
+import logo from './vertex-01.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -42,9 +42,10 @@ const Login = () => {
       setUserId(userId);
       setLoggedIn(true);
     } catch (error) {
+      alert('Error en el proceso de login: ' + error.message);
       console.error('Error en el login: ', error.message);
     }
-    //Logs
+    //Logs control
     console.log('email: ', email);
     console.log('pass: ', pass);
     console.log(userLogin);
@@ -64,6 +65,7 @@ const Login = () => {
             <img src={logo} />
           </div>
           <Form className="login-form" onSubmit={handleSubmit}>
+            <h3 className="d-flex justify-content-center text-muted">Login</h3>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -89,7 +91,11 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Button className="form-button" variant="success" type="submit">
+            <Button
+              className="form-button w-100"
+              variant="success"
+              type="submit"
+            >
               Submit
             </Button>
           </Form>

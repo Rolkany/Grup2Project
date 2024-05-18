@@ -8,16 +8,18 @@ import PropTypes from 'prop-types';
 // import User from './components/User';
 // import Event from './components/Event';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/Login';
+//import Login from './components/Login';
 import { UserProvider } from './components/UserContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NewLogin from './components/NewLogin';
+//import Barra from './components/Barra';
 
 const App = () => {
   return (
     <>
       <UserProvider>
         <div className="App">
-          <Login />
+          <NewLogin />
         </div>
       </UserProvider>
     </>

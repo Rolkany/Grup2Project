@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ajusta la altura para ocupar toda la altura visible del viewport */
+  height: 100vh;
   position: relative;
 }
 .login-logo {
   position: absolute;
-  top: 20%;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
 }
