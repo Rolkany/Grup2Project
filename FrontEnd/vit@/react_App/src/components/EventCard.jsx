@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 const EventCard = () => {
-  const [image, setImage] = useState('addPicture.png');
+  const [image, setImage] = useState(
+    'https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'
+  );
 
   const handleImageChange = (event) => {
     const imagenNueva = event.target.files[0];
@@ -104,19 +106,6 @@ const EventCard = () => {
               id="eventLocation"
               name="eventLocation"
               placeholder="Lugar del evento"
-            />
-          </div>
-
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventColab">
-              Colaboradores*
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              id="eventColab"
-              name="eventColab"
-              placeholder="Añade colaboradores"
             />
           </div>
 
