@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // import Title from './components/Title';
 // import UserDetail from './components/UserDetail';
 // import Book from './components/Book';
@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 // import InvoiceApp from './components/InvoiceApp';
 // import User from './components/User';
 // import Event from './components/Event';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 //import Login from './components/Login';
-import { UserProvider } from './components/UserContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserProvider } from "./components/UserContext";
+import "bootstrap/dist/css/bootstrap.min.css";
 //import NewLogin from './components/NewLogin';
-import EventCard from './components/EventCard';
+import EventCard from "./components/EventCard";
 //import Barra from './components/Barra';
 
 const App = () => {
