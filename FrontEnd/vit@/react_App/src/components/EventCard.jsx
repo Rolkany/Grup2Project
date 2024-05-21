@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './EventCard.css';
 
 const EventCard = () => {
   const [image, setImage] = useState(

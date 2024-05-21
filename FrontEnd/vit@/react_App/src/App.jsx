@@ -12,7 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserProvider } from './components/UserContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import NewLogin from './components/NewLogin';
-import EventCard from './components/EventCard';
+//import EventCard from './components/EventCard';
+//import NewProfile from './components/NewProfile';
+//import NewLogin from './components/NewLogin';
+//import PruebaComponente from './components/PruebaComponente';
+//import NewProfile from './components/NewProfile';
+import NewLogin from './components/NewLogin';
+//import EditProfile from './components/EditProfile';
 //import Barra from './components/Barra';
 
 const App = () => {
@@ -20,7 +26,7 @@ const App = () => {
     <>
       <UserProvider>
         <div className="App">
-          <EventCard />
+          <NewLogin />
         </div>
       </UserProvider>
     </>
