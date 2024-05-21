@@ -13,13 +13,15 @@ import { UserProvider } from './components/UserContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewLogin from './components/NewLogin';
 //import Barra from './components/Barra';
-
+import Splash from './components/Splash';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home';
 const App = () => {
   return (
     <>
       <UserProvider>
         <div className="App">
-          <NewLogin />
+          <Home/>
         </div>
       </UserProvider>
     </>

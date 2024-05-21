@@ -1,0 +1,148 @@
+/* Estilo general para deshabilitar scroll y fondo color crema */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #f5f5dc; /* Fondo color crema */
+  overflow: hidden; /* Deshabilitar scroll */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Contenedor de la imagen de fondo */
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 40%; /* Ocupa menos de la mitad de la pantalla */
+  overflow: hidden;
+}
+
+.homeFondo {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* La imagen cubrirá completamente el contenedor */
+}
+
+/* Contenedor del contenido */
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea el contenido hacia la parte superior */
+  align-items: center;
+  text-align: center;
+  padding-top: 40px; /* Ajusta el espacio superior */
+  padding: 20px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Fondo blanco para el contenido */
+}
+
+.logo {
+  width: 60px; /* Ajusta el ancho del logo */
+  height: auto;
+  margin-bottom: 20px; /* Ajusta el espacio inferior del logo */
+}
+
+.paragraph {
+  margin-top: 0;
+  font-size: 1.5rem; /* Tamaño de fuente del párrafo */
+  color: #333333; /* Color del texto */
+}
+
+.btn {
+  width: 150px; /* Anchura predeterminada de los botones */
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+/* Media queries para ajustar el tamaño de la imagen y el logo en pantallas pequeñas */
+@media (max-width: 576px) {
+  .image-container {
+    max-width: 100%; /* La imagen ocupa todo el ancho en pantallas pequeñas */
+    height: 50%; /* La imagen ocupa la mitad de la altura en pantallas pequeñas */
+  }
+
+  .homeFondo {
+    max-width: 90vw; /* Limita el ancho de la imagen al 90% del ancho de la ventana en pantallas pequeñas */
+  }
+
+  .logo {
+    width: 50px; /* Ajusta el ancho del logo en pantallas pequeñas */
+  }
+
+  .btn {
+    width: 100px; /* Anchura de los botones en pantallas pequeñas */
+  }
+}
+
+/* Media queries para ajustar el tamaño de la imagen y el logo en pantallas medianas */
+@media (min-width: 576px) and (max-width: 992px) {
+  .image-container {
+    max-width: 50%; /* La imagen ocupa la mitad del ancho en pantallas medianas */
+  }
+
+  .homeFondo {
+    max-width: 70vw; /* Limita el ancho de la imagen al 70% del ancho de la ventana en pantallas medianas */
+  }
+
+  .logo {
+    width: 60px; /* Ajusta el ancho del logo en pantallas medianas */
+  }
+
+  .btn {
+    width: 120px; /* Anchura de los botones en pantallas medianas */
+  }
+}
+
+/* Media queries para ajustar el tamaño de la imagen y el logo en pantallas grandes */
+@media (min-width: 992px) {
+  .image-container {
+    max-width: 50%; /* La imagen ocupa menos del 50% del ancho en pantallas grandes */
+
+ 
+      background: linear-gradient(to bottom, #3498db, #2980b9); /* Degradado azul suave */
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      max-width: 40%; /* Ocupa menos de la mitad de la pantalla */
+      overflow: hidden;
+    
+    
+  }
+
+  .homeFondo {
+    max-width: 90%; /* Limita el ancho de la imagen al 50% del ancho de la ventana en pantallas grandes */
+   
+  }
+
+  .logo {
+    width: 90px; /* Ajusta el ancho del logo en pantallas grandes */
+    
+  }
+
+  .btn {
+    width: 100px; /* Anchura de los botones en pantallas grandes */
+  }
+}
