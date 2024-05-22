@@ -50,14 +50,17 @@ const NewProfile = () => {
                   <MDBBtn
                     outline
                     color="#2222AA"
-                    style={{ height: '36px', overflow: 'visible' }}
+                    style={{ height: '36px', marginTop: '15px', zIndex: 1 }}
                   >
                     <Link to="/edit-profile" className="text-muted">
                       Editar perfil
                     </Link>
                   </MDBBtn>
                 </div>
-                <div className="ms-3" style={{ marginTop: '130px' }}>
+                <div
+                  className="text-center text-sm-start ms-0 ms-sm-3 mt-3 mt-sm-0"
+                  style={{ zIndex: 1 }}
+                >
                   <MDBTypography tag="h5">@{userId.userName}</MDBTypography>
                   <MDBCardText>{userId.email}</MDBCardText>
                 </div>
@@ -66,7 +69,7 @@ const NewProfile = () => {
                 className="p-4 text-black"
                 style={{ backgroundColor: '#f8f9fa' }}
               >
-                <div className="d-flex justify-content-end text-center py-1">
+                <div className="d-flex justify-content-around text-center py-1">
                   <div>
                     <MDBCardText className="mb-1 h5">253</MDBCardText>
                     <MDBCardText className="small text-muted mb-0">

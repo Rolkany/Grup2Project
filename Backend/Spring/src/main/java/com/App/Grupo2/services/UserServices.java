@@ -52,7 +52,6 @@ public class UserServices {
         if (userTemp.isPresent()) {
             User user = userTemp.get();
             user.setUserName(userToUpdate.getUserName());
-            user.setUserName(userToUpdate.getFirstName());
             user.setEmail(userToUpdate.getEmail());
             user.setImgUrl(userToUpdate.getImgUrl());
             user.setFirstName(userToUpdate.getFirstName());

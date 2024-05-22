@@ -42,6 +42,7 @@ const EditProfile = () => {
 
     const user = {
       userName,
+      email,
       imgUrl,
       firstName,
       lastName,
