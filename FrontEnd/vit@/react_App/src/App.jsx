@@ -14,19 +14,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //import NewLogin from './components/NewLogin';
 import EventCard from "./components/EventCard";
 //import Barra from './components/Barra';
-import Splash from './components/Splash';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './components/Home';
+import Splash from "./components/Splash";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./components/Home";
 const App = () => {
   return (
     <>
       <UserProvider>
         <div className="App">
-<<<<<<< HEAD
-          <Home/>
-=======
+          <Home />
           <EventCard />
->>>>>>> 4687136b6c971764aff9f00cdc947fa5bee4ca6d
         </div>
       </UserProvider>
     </>

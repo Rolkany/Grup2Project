@@ -20,8 +20,12 @@ const EventCard = () => {
   const handleFormSubmit = () => {};
 
   return (
-    <div id="pageBorder">
-      <img src="image_Vertex.png" alt="Logo" />
+    <div
+      className="bg-cover font-sans bg-no-repeat relative z-0 bg-center h-screen "
+      style={{
+        backgroundImage: `url(${"https://pixabay.com/illustrations/woman-line-reptile-creativity-8765199/"})`,
+      }}
+    >
       <div className="container d-flex flex-column align-items-center">
         <div className="mb-4">
           <h1 className="title">Crear Evento</h1>
