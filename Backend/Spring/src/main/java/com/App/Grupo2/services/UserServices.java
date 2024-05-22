@@ -31,12 +31,12 @@ public class UserServices {
         return userRepository.saveAndFlush(newUser);
     }
 
-    public int login(UserLogin login) {
+    public User login(UserLogin login) {
         User user = userRepository.findByEmail(login.getEmail());
         if (user != null && user.getPass().equals(login.getPass())) {
-            return user.getId();
+            return user;
         }
-        return -1;
+        return null;
     }
 
     public String deleteUser(int id) {

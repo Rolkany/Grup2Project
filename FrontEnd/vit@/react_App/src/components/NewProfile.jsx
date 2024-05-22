@@ -9,44 +9,56 @@ import {
   MDBBtn,
   MDBTypography,
 } from 'mdb-react-ui-kit';
-import logo from './pepon.png';
+//import logo from './pepon.png';
 
 import { useContext } from 'react';
 import UserContext from './UserContext';
+import { Link } from 'react-router-dom';
 
 const NewProfile = () => {
   const { userId } = useContext(UserContext);
   return (
-    <div className="gradient-custom-2" style={{ backgroundColor: '#9de2ff' }}>
+    <div
+      className="gradient-custom-2"
+      style={{
+        background: 'linear-gradient(to right, #9A9AEB, #C0C0F2, #E6E6FA)',
+      }}
+    >
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="9" xl="7">
             <MDBCard>
               <div
-                className="rounded-top text-white d-flex flex-row"
-                style={{ backgroundColor: '#ee7724', height: '200px' }}
+                className="rounded-top text-white d-flex flex-column flex-sm-row align-items-center"
+                style={{
+                  backgroundColor: '#7373E3',
+                  height: 'auto',
+                  padding: '20px',
+                }}
               >
                 <div
                   className="ms-4 mt-5 d-flex flex-column"
                   style={{ width: '150px' }}
                 >
                   <MDBCardImage
-                    src={logo}
+                    src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" //{userId.imgUrl}
                     alt="imagen profile"
-                    className="mt-4 mb-2 img-thumbnail"
+                    className="mt-4 mb-2 img-thumbnail rounded-circle shadow-4"
                     fluid
                     style={{ width: '150px', zIndex: '1' }}
                   />
                   <MDBBtn
                     outline
-                    color="dark"
+                    color="#2222AA"
                     style={{ height: '36px', overflow: 'visible' }}
                   >
-                    Edit profile
+                    <Link to="/edit-profile" className="text-muted">
+                      Editar perfil
+                    </Link>
                   </MDBBtn>
                 </div>
                 <div className="ms-3" style={{ marginTop: '130px' }}>
-                  <MDBTypography tag="h5">@{userId.username}</MDBTypography>
+                  <MDBTypography tag="h5">@{userId.userName}</MDBTypography>
                   <MDBCardText>{userId.email}</MDBCardText>
                 </div>
               </div>
@@ -74,23 +86,11 @@ const NewProfile = () => {
                   <p className="lead fw-normal mb-1">Acerca de mí</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
                     <MDBCardText className="font-italic mb-1">
-                      {userId.phone}
+                      {userId.des}
                     </MDBCardText>
                   </div>
                 </div>
-                <div className="mb-5">
-                  <p className="lead fw-normal mb-1">Opciones</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">
-                      <MDBBtn className="mx-2" color="secondary">
-                        Editar perfil
-                      </MDBBtn>
-                      <MDBBtn className="mx-2" color="secondary">
-                        Crear Evento
-                      </MDBBtn>
-                    </MDBCardText>
-                  </div>
-                </div>
+
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <MDBCardText className="lead fw-normal mb-0">
                     Mis eventos
