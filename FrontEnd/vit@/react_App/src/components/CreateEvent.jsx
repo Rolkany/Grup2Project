@@ -4,7 +4,7 @@ import { languageOptions } from "../data/languageOptions";
 import { locationOptions } from "../data/locationOption";
 import "./CreateEvent.css";
 
-function App() {
+function CreateEvent() {
   return (
     <div>
       <form action="">
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default CreateEvent;
