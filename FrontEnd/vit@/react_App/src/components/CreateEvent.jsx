@@ -11,7 +11,7 @@ function CreateEvent() {
   const handleFileChange = event => {
     const files = Array.from(event.target.files);
     const currentFiles = selectedFiles.length;
-    const newFiles = files.slice(0, 5 - currentFiles); // Limita a 5 archivos en total
+    const newFiles = files.slice(0, 5 - currentFiles);
     setSelectedFiles(prevFiles => [...prevFiles, ...newFiles].slice(0, 5));
   };
   return (
