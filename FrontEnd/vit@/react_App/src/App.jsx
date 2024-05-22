@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import NewLogin from './components/NewLogin';
 
 //import NewLogin from './components/NewLogin';
-import NewProfile from './components/NewProfile';
+//import NewProfile from './components/NewProfile';
 import NewLogin from './components/NewLogin';
 //git puimport EditProfile from './components/EditProfile';
 //import Barra from './components/Barra';
