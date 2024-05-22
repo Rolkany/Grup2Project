@@ -21,11 +21,19 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   margin-bottom: 10px;
 }
 
 .homeFondo {
   max-width: 50%;
+=======
+  margin-bottom: 10px; /* Reducido el margen inferior */
+}
+
+.homeFondo {
+  max-width: 100%;
+>>>>>>> d88f873b27a8172a459214023f829498c4a05a7d
   height: auto;
 }
 
@@ -34,7 +42,11 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   margin-top: 10px; /
+=======
+  margin-top: 10px; /* Añadido un margen superior pequeño */
+>>>>>>> d88f873b27a8172a459214023f829498c4a05a7d
 }
 
 .logo {
@@ -52,6 +64,7 @@ html {
   width: 150px;
 }
 
+<<<<<<< HEAD
 
 @media (min-width: 768px) {
   .main-container {
@@ -62,12 +75,31 @@ html {
   .image-container {
     flex: 1;
     margin-right: -300px; 
+=======
+/* Responsividad */
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .image-container {
+    flex: 1;
+    margin-right: -500px; /* Reducido el margen derecho */
+>>>>>>> d88f873b27a8172a459214023f829498c4a05a7d
     margin-bottom: 0;
   }
 
   .content-container {
     flex: 1;
+<<<<<<< HEAD
     margin-left: 10px; 
     margin-top: 0; 
   }
 }
+=======
+    margin-left: 10px; /* Reducido el margen izquierdo */
+    margin-top: 0; /* Removido el margen superior en pantallas grandes */
+  }
+}
+>>>>>>> d88f873b27a8172a459214023f829498c4a05a7d
