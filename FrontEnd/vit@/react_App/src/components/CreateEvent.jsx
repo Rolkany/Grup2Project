@@ -1,9 +1,9 @@
 import React from "react";
+import "./CreateEvent.css";
 import { useState } from "react";
 import Select from "react-select";
 import { languageOptions } from "./data/languageOptions";
 import { locationOptions } from "./data/locationOption";
-import "./CreateEvent.css";
 
 function CreateEvent() {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -14,6 +14,7 @@ function CreateEvent() {
     const newFiles = files.slice(0, 5 - currentFiles);
     setSelectedFiles(prevFiles => [...prevFiles, ...newFiles].slice(0, 5));
   };
+
   return (
     <>
       <form action="">
