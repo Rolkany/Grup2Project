@@ -1,21 +1,51 @@
 import React from "react";
+import { useState } from "react";
 import Select from "react-select";
-import { languageOptions } from "../data/languageOptions";
-import { locationOptions } from "../data/locationOption";
+import { languageOptions } from "./data/languageOptions";
+import { locationOptions } from "./data/locationOption";
 import "./CreateEvent.css";
 
 function CreateEvent() {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileChange = event => {
+    const files = Array.from(event.target.files);
+    const currentFiles = selectedFiles.length;
+    const newFiles = files.slice(0, 5 - currentFiles); // Limita a 5 archivos en total
+    setSelectedFiles(prevFiles => [...prevFiles, ...newFiles].slice(0, 5));
+  };
   return (
-    <div>
+    <>
       <form action="">
-        <div>
-          <div className="half">
-            <div className="item">
-              <h1>EVENT DETAILS</h1>
-            </div>
-            <div className="action">
-              <input type="foto" value="Choice Picture" />
-            </div>
+        <div className="half">
+          <div className="item">
+            <h2>CRETE EVENT</h2>
+          </div>
+
+          <div className="item">
+            <label htmlFor="file-upload" className="custom-file-upload">
+              Upload Pictures
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleFileChange}
+              style={{ display: "none" }}
+            />
+          </div>
+        </div>
+        <div className="full">
+          <div className="action">
+            {selectedFiles.map((file, index) => (
+              <img
+                key={index}
+                src={URL.createObjectURL(file)}
+                alt={`Preview ${index}`}
+                className="preview-img"
+              />
+            ))}
           </div>
         </div>
         <div className="half">
@@ -65,7 +95,7 @@ function CreateEvent() {
           <input type="submit" value="PREVIEW EVENT" />
         </div>
       </form>
-    </div>
+    </>
   );
 }
 
