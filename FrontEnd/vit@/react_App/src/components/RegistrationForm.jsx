@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./register.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 function RegistrationForm() {
-  // Definimos el estado inicial del formulario con useState
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -10,7 +10,6 @@ function RegistrationForm() {
     confirmPassword: "",
   });
 
-  // Función para manejar los cambios en los campos del formulario
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({
@@ -19,15 +18,14 @@ function RegistrationForm() {
     });
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = e => {
-    e.preventDefault(); // Evita la recarga de la página al enviar el formulario
+    e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Las contraseñas no coinciden!"); // Muestra una alerta si las contraseñas no coinciden
+      alert("Las contraseñas no coinciden!");
       return;
     }
     // Lógica para el envío del formulario
-    console.log("Formulario enviado:", formData); // Imprime los datos del formulario en la consola
+    console.log("Formulario enviado:", formData);
   };
 
   return (
@@ -65,6 +63,7 @@ function RegistrationForm() {
             placeholder="Ingresa Email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
 
           <label className="pt-2" htmlFor="password">
@@ -78,6 +77,7 @@ function RegistrationForm() {
             placeholder="Ingresa Contraseña"
             value={formData.password}
             onChange={handleChange}
+            required
           />
 
           <label className="pt-2" htmlFor="confirm-password">
@@ -91,6 +91,7 @@ function RegistrationForm() {
             placeholder="Confirma Contraseña"
             value={formData.confirmPassword}
             onChange={handleChange}
+            required
           />
 
           <button className="btn btn-primary mt-3" type="submit">
@@ -98,9 +99,9 @@ function RegistrationForm() {
           </button>
           <p className="pt-2">
             ¿Ya eres miembro?
-            <a href="../Login/login.html">
-              <strong>Inicia sesión</strong>
-            </a>
+            <Link to="/login">
+              <strong> Inicia sesión</strong>
+            </Link>
           </p>
         </form>
       </div>
