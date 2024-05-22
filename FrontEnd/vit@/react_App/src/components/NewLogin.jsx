@@ -41,7 +41,7 @@ const NewLogin = () => {
         body: JSON.stringify(userLogin),
       });
       if (!response.ok) {
-        throw new Error('Fallo en el proceso de login');
+        throw new Error('Fallo en el proceso de login', response.status);
       }
       //Recibimos la respuesta del servidor
       const dataResponse = await response.json();

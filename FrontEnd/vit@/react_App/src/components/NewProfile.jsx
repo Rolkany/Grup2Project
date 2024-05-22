@@ -78,6 +78,19 @@ const NewProfile = () => {
                     </MDBCardText>
                   </div>
                 </div>
+                <div className="mb-5">
+                  <p className="lead fw-normal mb-1">Opciones</p>
+                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                    <MDBCardText className="font-italic mb-1">
+                      <MDBBtn className="mx-2" color="secondary">
+                        Editar perfil
+                      </MDBBtn>
+                      <MDBBtn className="mx-2" color="secondary">
+                        Crear Evento
+                      </MDBBtn>
+                    </MDBCardText>
+                  </div>
+                </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <MDBCardText className="lead fw-normal mb-0">
                     Mis eventos
