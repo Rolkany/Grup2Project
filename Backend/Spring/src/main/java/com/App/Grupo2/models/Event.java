@@ -24,7 +24,7 @@ import lombok.Data;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id; 
     private String imgUrl;
     private String title;
     private String eventDate;

@@ -12,6 +12,7 @@ import UserContext from './UserContext';
 
 import './NewLogin.css';
 import NewProfile from './NewProfile';
+import Footer from './Footer';
 
 const NewLogin = () => {
   const [email, setEmail] = useState('');
@@ -134,8 +135,11 @@ const NewLogin = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-      )}
+      )
+      }
+    <Footer/>
     </>
+
   );
 };
 
