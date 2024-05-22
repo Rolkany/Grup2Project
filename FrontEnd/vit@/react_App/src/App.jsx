@@ -17,8 +17,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import NewLogin from './components/NewLogin';
 //import PruebaComponente from './components/PruebaComponente';
 //import NewProfile from './components/NewProfile';
+//import NewLogin from './components/NewLogin';
+
+//import NewLogin from './components/NewLogin';
+import NewProfile from './components/NewProfile';
 import NewLogin from './components/NewLogin';
-//import EditProfile from './components/EditProfile';
+//git puimport EditProfile from './components/EditProfile';
 //import Barra from './components/Barra';
 
 const App = () => {
