@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 // import Title from './components/Title';
@@ -25,33 +24,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewLogin from './components/NewLogin';
 //git puimport EditProfile from './components/EditProfile';
 //import Barra from './components/Barra';
-=======
-import React from 'react';
-import PropTypes from "prop-types";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { UserProvider } from "./components/UserContext";
-import Home from "./components/Home";
-import NewLogin from "./components/NewLogin";
-import RegistrationForm from "./components/RegistrationForm";
-import EventCard from "./components/EventCard";
->>>>>>> origin/main
+
+import Home from './components/Home';
+
+import RegistrationForm from './components/RegistrationForm';
+//import EventCard from './components/EventCard';
+//import Footer from './components/Footer';
 
 const App = () => {
   return (
     <UserProvider>
       <Router>
         <div className="App">
-<<<<<<< HEAD
-          <NewLogin />
-=======
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<NewLogin />} />
             <Route path="/register" element={<RegistrationForm />} />
           </Routes>
-          <EventCard />
->>>>>>> origin/main
         </div>
       </Router>
     </UserProvider>
