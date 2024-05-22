@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
-import { languageOptions } from "./data/languageOptions";
-import { locationOptions } from "./data/locationOption";
+import { languageOptions } from "../data/languageOptions";
+import { locationOptions } from "../data/locationOption";
 import "./CreateEvent.css";
 
 function App() {
