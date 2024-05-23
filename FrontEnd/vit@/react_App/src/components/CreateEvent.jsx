@@ -1,20 +1,22 @@
 import React from "react";
-import "./CreateEvent.css";
 import { useState } from "react";
 import Select from "react-select";
 import { languageOptions } from "./data/languageOptions";
 import { locationOptions } from "./data/locationOption";
+import "./CreateEvent.css";
 
 function CreateEvent() {
+  // ---------- States ----------
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [lang, setLang] = useState(languageOptions);
+  console.log(lang);
 
   const handleFileChange = event => {
     const files = Array.from(event.target.files);
     const currentFiles = selectedFiles.length;
-    const newFiles = files.slice(0, 5 - currentFiles);
+    const newFiles = files.slice(0, 5 - currentFiles); // Limita a 5 archivos en total
     setSelectedFiles(prevFiles => [...prevFiles, ...newFiles].slice(0, 5));
   };
-
   return (
     <>
       <form action="">
@@ -92,8 +94,8 @@ function CreateEvent() {
           </div>
         </div>
         <div className="action">
-          <input type="reset" value="CANCEL" />
-          <input type="submit" value="PREVIEW EVENT" />
+          <input type="reset" value="BACK" />
+          <input type="submit" value="EVENT PREVIEW" />
         </div>
       </form>
     </>
