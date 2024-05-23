@@ -1,58 +1,58 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useContext, useState } from 'react';
-import UserContext from './UserContext';
-import Profile from './Profile';
-import './Login.css';
-import logo from './vertex-01.png';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { useContext, useState } from "react";
+import UserContext from "./UserContext";
+import Profile from "./Profile";
+import "./Login.css";
+import logo from "./vertex-01.png";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const { setUserId } = useContext(UserContext);
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = e => {
     setEmail(e.target.value);
   };
-  const handlePassChange = (e) => {
+  const handlePassChange = e => {
     setPass(e.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const userLogin = { email, pass };
 
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/users/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userLogin),
       });
       if (!response.ok) {
-        throw new Error('Fallo en el proceso de login');
+        throw new Error("Fallo en el proceso de login");
       }
       //Recibimos la respuesta del servidor
       const dataResponse = await response.json();
-      console.log('La respuesta es: ', dataResponse);
+      console.log("La respuesta es: ", dataResponse);
       const userId = dataResponse;
       setUserId(userId);
       setLoggedIn(true);
     } catch (error) {
-      alert('Error en el proceso de login: ' + error.message);
-      console.error('Error en el login: ', error.message);
+      alert("Error en el proceso de login: " + error.message);
+      console.error("Error en el login: ", error.message);
     }
     //Logs control
-    console.log('email: ', email);
-    console.log('pass: ', pass);
+    console.log("email: ", email);
+    console.log("pass: ", pass);
     console.log(userLogin);
 
     //Limpieza inputs
-    setEmail('');
-    setPass('');
+    setEmail("");
+    setPass("");
   };
 
   return (

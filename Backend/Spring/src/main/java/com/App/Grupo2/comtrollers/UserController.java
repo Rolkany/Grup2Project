@@ -55,7 +55,7 @@ public class UserController {
 
     /* ----- Maneja las solicitudes POST a /users/login ----- */
     @PostMapping("/users/login")
-    public int login(@RequestBody UserLogin login) {
+    public User login(@RequestBody UserLogin login) {
         return userServices.login(login);
     }
 

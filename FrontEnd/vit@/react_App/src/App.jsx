@@ -30,6 +30,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 
 import RegistrationForm from './components/RegistrationForm';
+//import EditProfile from './components/EditProfile';
 //import EventCard from './components/EventCard';
 //import Footer from './components/Footer';
 

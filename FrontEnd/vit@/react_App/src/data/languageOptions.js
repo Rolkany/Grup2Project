@@ -1,0 +1,23 @@
+// Opciones de idiomas
+export const languageOptions = [
+    { id: 1, value: 'english', label: 'English' },
+    { id: 2, value: 'spanish', label: 'Spanish' },
+    { id: 3, value: 'french', label: 'French' },
+    { id: 4, value: 'german', label: 'German' },
+    { id: 5, value: 'italian', label: 'Italian' },
+    { id: 6, value: 'chinese', label: 'Chinese' },
+    { id: 7, value: 'japanese', label: 'Japanese' },
+    { id: 8, value: 'korean', label: 'Korean' },
+    { id: 9, value: 'russian', label: 'Russian' },
+    { id: 10, value: 'portuguese', label: 'Portuguese' },
+    { id: 11, value: 'arabic', label: 'Arabic' },
+    { id: 12, value: 'hindi', label: 'Hindi' },
+    { id: 13, value: 'bengali', label: 'Bengali' },
+    { id: 14, value: 'urdu', label: 'Urdu' },
+    { id: 15, value: 'swahili', label: 'Swahili' },
+    { id: 16, value: 'turkish', label: 'Turkish' },
+    { id: 17, value: 'vietnamese', label: 'Vietnamese' },
+    { id: 18, value: 'thai', label: 'Thai' },
+    { id: 19, value: 'greek', label: 'Greek' },
+    { id: 20, value: 'dutch', label: 'Dutch' },
+];
