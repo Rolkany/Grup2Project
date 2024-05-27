@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import './EventCard.css';
+import { useState } from "react";
+import "./EventCard.css";
 
 const EventCard = () => {
   const [image, setImage] = useState(
-    'https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'
+    "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
   );
 
-  const handleImageChange = (event) => {
+  const handleImageChange = event => {
     const imagenNueva = event.target.files[0];
     if (imagenNueva) {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         setImage(e.target.result);
       };
       reader.readAsDataURL(imagenNueva);
@@ -23,7 +23,7 @@ const EventCard = () => {
     <div
       className="bg-cover font-sans bg-no-repeat relative z-0 bg-center h-screen "
       style={{
-        backgroundImage: `url(${'https://pixabay.com/illustrations/woman-line-reptile-creativity-8765199/'})`,
+        backgroundImage: `url(${"https://pixabay.com/illustrations/woman-line-reptile-creativity-8765199/"})`,
       }}
     >
       <div className="container d-flex flex-column align-items-center">
@@ -39,9 +39,9 @@ const EventCard = () => {
                 alt="Icono de cargar imagen"
                 className="img-thumbnail"
                 style={{
-                  width: '150px',
-                  height: '150px',
-                  objectFit: 'cover',
+                  width: "160px",
+                  height: "160px",
+                  objectFit: "cover",
                 }}
               />
               <input
@@ -49,7 +49,7 @@ const EventCard = () => {
                 id="fileInput"
                 onChange={handleImageChange}
                 className="form-control mt-2"
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
               />
               <label
                 htmlFor="fileInput"

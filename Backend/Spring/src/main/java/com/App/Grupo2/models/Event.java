@@ -3,7 +3,7 @@ package com.App.Grupo2.models;
 import java.util.HashSet;
 
 import java.util.Set;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,10 +24,10 @@ import lombok.Data;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; 
+    private int id;
     private String imgUrl;
     private String title;
-    private String eventDate;
+    private LocalDateTime eventDate;
     private String des;
     @OneToOne
     @JoinColumn(name = "createdBy", referencedColumnName = "id")
