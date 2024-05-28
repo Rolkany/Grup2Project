@@ -8,7 +8,6 @@ import {
 import logo from './image_Vertex.png';
 import { useContext, useState } from 'react';
 import UserContext from './UserContext';
-//import Profile from './Profile';
 
 import './NewLogin.css';
 import NewProfile from './NewProfile';
@@ -34,7 +33,6 @@ const NewLogin = () => {
 
     try {
       const response = await fetch('http://localhost:8080/users/login', {
-        //aqui ahora no esta apuntando a la BBDD del proyecto (pero si a una gemela)
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +42,7 @@ const NewLogin = () => {
       if (!response.ok) {
         throw new Error('Fallo en el proceso de login', response.status);
       }
-      //Recibimos la respuesta del servidor
+
       const dataResponse = await response.json();
       console.log('La respuesta es: ', dataResponse);
       const userId = dataResponse;
@@ -54,12 +52,11 @@ const NewLogin = () => {
       alert('Error en el proceso de login: ' + error.message);
       console.error('Error en el login: ', error.message);
     }
-    //Logs control
+
     console.log('email: ', email);
     console.log('pass: ', pass);
     console.log(userLogin);
 
-    //Limpieza inputs
     setEmail('');
     setPass('');
   };
@@ -101,6 +98,7 @@ const NewLogin = () => {
                     <MDBBtn
                       type="submit"
                       className="mb-4 w-100 gradient-custom-2"
+                      style={{ width: '100%' }}
                     >
                       Entra!
                     </MDBBtn>
@@ -135,11 +133,9 @@ const NewLogin = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-      )
-      }
-    <Footer/>
+      )}
+      <Footer />
     </>
-
   );
 };
 

@@ -1,11 +1,24 @@
+<<<<<<< HEAD
+import { useContext, useState } from 'react';
+import './EventCard.css';
+import UserContext from './UserContext';
+=======
 import { useState } from "react";
 import "./EventCard.css";
 import logo from "./image_Vertex.png";
+>>>>>>> origin/main
 
 const EventCard = () => {
   const [image, setImage] = useState(
     "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
   );
+  const [title, setTitle] = useState('');
+  const [dateTime, setDateTime] = useState('');
+  const [lang, setLang] = useState('');
+  const [type, setType] = useState('');
+  const [location, setLocation] = useState('');
+  const [des, setDes] = useState('');
+  const { userId } = useContext(UserContext);
 
   const handleImageChange = event => {
     const imagenNueva = event.target.files[0];
@@ -18,7 +31,7 @@ const EventCard = () => {
     }
   };
 
-  const handleFormSubmit = () => {};
+  const handleFormSubmit = async () => {};
 
   return (
     <div className="event_container">
@@ -51,6 +64,96 @@ const EventCard = () => {
             </label>
           </div>
 
+<<<<<<< HEAD
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventTitle">
+                Título del evento*
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                id="eventTitle"
+                name="eventTitle"
+                placeholder="Título del evento"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventDateTime">
+                Fecha y Hora del evento*
+              </label>
+              <input
+                className="form-control"
+                type="datetime-local"
+                id="eventDateTime"
+                name="eventDateTime"
+                value={dateTime}
+                onChange={(e) => setDateTime(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventLang">
+                Idioma*
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                id="eventLang"
+                name="idioma"
+                placeholder="Idioma"
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventType">
+                Tipo de evento*
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                id="eventType"
+                name="eventType"
+                placeholder="Tipo de evento"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventLocation">
+                Lugar*
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                id="eventLocation"
+                name="eventLocation"
+                placeholder="Lugar del evento"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventDescript">
+                Descripción del evento*
+              </label>
+              <textarea
+                className="form-control"
+                id="eventDescript"
+                name="eventDescript"
+                placeholder="Descripción del evento"
+                rows="4"
+                value={des}
+                onChange={(e) => setDes(e.target.value)}
+              ></textarea>
+            </div>
+=======
           <div className="col-12">
             <label className="form-label" htmlFor="eventTitle">
               Título del evento*
@@ -127,6 +230,7 @@ const EventCard = () => {
               rows="4"
             ></textarea>
           </div>
+>>>>>>> origin/main
 
           <div className="col-12">
             <p>Campos marcados con (*) son obligatorios.</p>

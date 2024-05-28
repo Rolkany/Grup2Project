@@ -9,7 +9,6 @@ import {
   MDBBtn,
   MDBTypography,
 } from 'mdb-react-ui-kit';
-//import logo from './pepon.png';
 
 import { useContext } from 'react';
 import UserContext from './UserContext';
@@ -41,7 +40,7 @@ const NewProfile = () => {
                   style={{ width: '150px' }}
                 >
                   <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" //{userId.imgUrl}
+                    src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
                     alt="imagen profile"
                     className="mt-4 mb-2 img-thumbnail rounded-circle shadow-4"
                     fluid
@@ -93,6 +92,23 @@ const NewProfile = () => {
                     </MDBCardText>
                   </div>
                 </div>
+                <div className="mb-5">
+                  <p className="lead fw-normal mb-1">Mis datos</p>
+                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                    <MDBCardText className="font-italic mb-1">
+                      🎂 {userId.age}
+                    </MDBCardText>
+                    <MDBCardText className="font-italic mb-1">
+                      ☏ {userId.phone}
+                    </MDBCardText>
+                    <MDBCardText className="font-italic mb-1">
+                      🏘 {userId.address}
+                    </MDBCardText>
+                    <MDBCardText className="font-italic mb-1">
+                      ♦️ {userId.points}
+                    </MDBCardText>
+                  </div>
+                </div>
 
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <MDBCardText className="lead fw-normal mb-0">
@@ -100,7 +116,12 @@ const NewProfile = () => {
                   </MDBCardText>
                   <MDBCardText className="mb-0">
                     <a href="#!" className="text-muted">
-                      Mostrar todos
+                      Mostrar todos los eventos
+                    </a>
+                  </MDBCardText>
+                  <MDBCardText className="mb-0">
+                    <a href="#!" className="text-muted">
+                      Crear eventos
                     </a>
                   </MDBCardText>
                 </div>

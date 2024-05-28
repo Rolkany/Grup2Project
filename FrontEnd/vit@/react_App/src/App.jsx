@@ -1,4 +1,15 @@
 /* eslint-disable react/prop-types */
+<<<<<<< HEAD
+import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { UserProvider } from './components/UserContext';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Home from './components/Home';
+import NewLogin from './components/NewLogin';
+import RegistrationForm from './components/RegistrationForm';
+=======
 import PropTypes from "prop-types";
 // import Title from './components/Title';
 // import UserDetail from './components/UserDetail';
@@ -34,6 +45,7 @@ import NewProfile from "./components/NewProfile";
 //import EditProfile from './components/EditProfile';
 //import EventCard from './components/EventCard';
 //import Footer from './components/Footer';
+>>>>>>> origin/main
 
 const App = () => {
   return (
