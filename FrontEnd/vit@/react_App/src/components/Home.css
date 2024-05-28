@@ -21,7 +21,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Mantenido el margen inferior */
 }
 
 .homeFondo {
@@ -34,7 +34,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10px; /* Añadido un margen superior pequeño */
+  margin-top: 10px; /* Mantenido el margen superior */
 }
 
 .logo {
@@ -61,13 +61,14 @@ html {
 
   .image-container {
     flex: 1;
-    margin-right: -500px;
+    margin-right: -500px; /* Reducido el margen derecho */
     margin-bottom: 0;
   }
 
   .content-container {
     flex: 1;
-    margin-left: 10px;
-    margin-top: 0;
+    margin-left: 10px; /* Reducido el margen izquierdo */
+    margin-top: 0; /* Removido el margen superior en pantallas grandes */
   }
 }
+
