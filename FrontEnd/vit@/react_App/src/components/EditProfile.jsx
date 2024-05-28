@@ -51,7 +51,7 @@ const EditProfile = () => {
 
     try {
       const response = await fetch('http://localhost:8080/users', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-type': 'application/json',
         },

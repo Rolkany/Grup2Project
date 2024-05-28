@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './EventCard.css';
+import UserContext from './UserContext';
 
 const EventCard = () => {
   const [image, setImage] = useState(
     'https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'
   );
+  const [title, setTitle] = useState('');
+  const [dateTime, setDateTime] = useState('');
+  const [lang, setLang] = useState('');
+  const [type, setType] = useState('');
+  const [location, setLocation] = useState('');
+  const [des, setDes] = useState('');
+  const { userId } = useContext(UserContext);
 
   const handleImageChange = (event) => {
     const imagenNueva = event.target.files[0];
@@ -17,7 +25,7 @@ const EventCard = () => {
     }
   };
 
-  const handleFormSubmit = () => {};
+  const handleFormSubmit = async () => {};
 
   return (
     <div
@@ -69,6 +77,8 @@ const EventCard = () => {
                 id="eventTitle"
                 name="eventTitle"
                 placeholder="Título del evento"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
 
@@ -81,6 +91,8 @@ const EventCard = () => {
                 type="datetime-local"
                 id="eventDateTime"
                 name="eventDateTime"
+                value={dateTime}
+                onChange={(e) => setDateTime(e.target.value)}
               />
             </div>
 
@@ -94,6 +106,8 @@ const EventCard = () => {
                 id="eventLang"
                 name="idioma"
                 placeholder="Idioma"
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
               />
             </div>
 
@@ -107,6 +121,8 @@ const EventCard = () => {
                 id="eventType"
                 name="eventType"
                 placeholder="Tipo de evento"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
               />
             </div>
 
@@ -120,6 +136,8 @@ const EventCard = () => {
                 id="eventLocation"
                 name="eventLocation"
                 placeholder="Lugar del evento"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
               />
             </div>
 
@@ -133,6 +151,8 @@ const EventCard = () => {
                 name="eventDescript"
                 placeholder="Descripción del evento"
                 rows="4"
+                value={des}
+                onChange={(e) => setDes(e.target.value)}
               ></textarea>
             </div>
 

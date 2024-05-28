@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -18,14 +18,14 @@ function RegistrationForm() {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Las contraseñas no coinciden!");
+      alert('Las contraseñas no coinciden!');
       return;
     }
     // Lógica para el envío del formulario
-    console.log("Formulario enviado:", formData);
+    console.log('Formulario enviado:', formData);
   };
 
   return (
