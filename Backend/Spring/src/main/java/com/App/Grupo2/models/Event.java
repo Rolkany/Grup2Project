@@ -47,5 +47,5 @@ public class Event {
 // @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
 // true)
 // @JoinColumn(name = "event_id")
-// private Set<Reviews> reviews = new HashSet<>();
+// private Set<Reviews> reviews = new HashSet<>();clear
 // private List<User> users = new HashSet<>();

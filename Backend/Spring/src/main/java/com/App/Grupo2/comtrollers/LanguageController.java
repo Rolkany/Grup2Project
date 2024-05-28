@@ -29,7 +29,7 @@ public class LanguageController {
 
     // ----- Endpoint to get all locations -----
     @GetMapping("/languages")
-    public List<Language> getAll() {
+    public List<Language> getAlle() {
         return this.languageServices.getAll();
     }
 
