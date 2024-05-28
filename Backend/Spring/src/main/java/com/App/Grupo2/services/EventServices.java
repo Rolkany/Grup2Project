@@ -53,7 +53,6 @@ public class EventServices {
             event.setImgUrl(eventToUpdate.getImgUrl());
             event.setTitle(eventToUpdate.getTitle());
             event.setEventDate(eventToUpdate.getEventDate());
-            event.setDes(eventToUpdate.getEventDate());
             event.setDes(eventToUpdate.getDes());
             event.setCreatedBy(eventToUpdate.getCreatedBy());
             return eventRepository.save(event);

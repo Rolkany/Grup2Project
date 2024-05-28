@@ -19,5 +19,8 @@ public class Location {
     private String value;
     private String label;
     private String group_label;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 }

@@ -1,5 +1,4 @@
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -7,11 +6,12 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(217, 70, 239);
-  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--primary-bg-color);
+  font-family: var(--font-primary);
 }
+
 form {
-  background-color: rgb(217, 70, 239);
+  background-color: var(--primary-bg-color);
 }
 
 h1 {
@@ -40,6 +40,7 @@ a {
   background-color: transparent;
   text-decoration: none;
 }
+
 a:visited {
   color: inherit;
 }
@@ -96,35 +97,52 @@ body div {
 img {
   margin-top: 115px;
 }
+
 .d-flex {
   flex-direction: column;
-  button {
-    margin-top: 1rem;
-  }
 }
+
+.d-flex button {
+  margin-top: 1rem;
+}
+
 .btn-primary {
-  background-color: #4e1057 !important;
-  border: 1px solid #ffffff;
+  background-color: var(--button-bg-color) !important;
+  border: 1px solid var(--button-border-color);
   width: 105px;
   margin: 0 auto !important;
-  box-shadow: 0px 5px 8px rgba(98, 98, 98, 0.5);
+  box-shadow: 0px 5px 8px var(--button-shadow-color);
   margin-top: 1rem !important;
 }
 
 strong {
-  color: #ffffff;
+  color: var(--primary-text-color);
 }
 
 p {
   margin-top: 1rem !important;
-  color: #ffffff;
+  color: var(--primary-text-color);
 }
+
 button,
 h1 {
-  font-family: 'Russo One', sans-serif !important;
-  color: #ffffff;
+  font-family: var(--font-secondary) !important;
+  color: var(--primary-text-color);
 }
+
 label {
   text-align: left;
-  color: #ffffff;
+  color: var(--primary-text-color);
+}
+
+/* Variables CSS */
+:root {
+  --primary-bg-color: rgb(217, 70, 239);
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #4e1057;
+  --button-bg-color: #4e1057;
+  --button-border-color: #ffffff;
+  --button-shadow-color: rgba(98, 98, 98, 0.5);
+  --font-primary: 'Nunito Sans', sans-serif;
+  --font-secondary: 'Russo One', sans-serif;
 }
