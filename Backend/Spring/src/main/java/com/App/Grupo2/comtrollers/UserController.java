@@ -48,9 +48,9 @@ public class UserController {
 
     /* ----- Maneja las solicitudes POST a /users ----- */
     @PostMapping("/users")
-    public int addUser(@RequestBody User newUser) {
+    public User addUser(@RequestBody User newUser) {
         User user = userServices.addUser(newUser);
-        return user.getId();
+        return user;
     }
 
     /* ----- Maneja las solicitudes POST a /users/login ----- */
