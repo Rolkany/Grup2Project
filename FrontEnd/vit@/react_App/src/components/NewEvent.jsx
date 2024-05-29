@@ -6,8 +6,8 @@ import Select from "react-select";
 import { uploadFile } from "./firebase/config";
 import "./NewEvent.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import "./NewEvent.css";
+//import { Carousel } from "react-responsive-carousel";
+//import "./NewEvent.css";
 
 const NewEvent = () => {
   const [eventPicture, setEventPicture] = useState("");
@@ -45,12 +45,11 @@ const NewEvent = () => {
         console.error("Error fetching languages:", error);
       }
     };
-    
     fetchAndSetLanguages();
   }, []);
 
   const handlePictureChange = event => {
-    const file = event.target.file;
+    const file = event.target.file[0];
     /*     if (files.length > 4) {
       alert("You can upload a maximum of 4 pictures.");
       return;
@@ -87,21 +86,22 @@ const NewEvent = () => {
       event.preventDefault();
       setError(null);
 
-      /* if (eventPicture.length > 4) {
+      /*       if (eventPicture.length > 4) {
         setError("No puedes subir más de 4 archivos.");
         return;
-      } */
-
-/*       setUploading(true);
+      }
+ */
+      setUploading(true);
       try {
-        const uploadResults = await Promise.all(
+        const uploadResults = await uploadFile(eventPicture);
+        /* Promise.all(
           eventPicture.map(file => uploadFile(file))
         ); */
         const data = {
-          eventPicture,
+          eventPicture: uploadResults,
           eventTitle,
           eventDate,
-          //eventType,
+          eventType,
           eventLanguage: eventLanguage.map(lang => lang.label).join(", "),
           eventLocation: eventLocation.map(loc => loc.label).join(", "),
           eventDescription,
@@ -157,7 +157,7 @@ const NewEvent = () => {
               id="file-upload"
               type="file"
               accept="image/*"
-              multiple
+              //isMulti
               onChange={handlePictureChange}
               style={{ display: "none" }}
               disabled={uploading}
@@ -252,7 +252,19 @@ const NewEvent = () => {
         <div className="preview_box">
           <div className="wraped">
             <h2 className="ev_pw">Event Preview</h2>
-            {eventPicture.length > 0 && (
+            {eventPicture && (
+              <div>
+                <img
+                  className="img-preview"
+                  src={URL.createObjectURL(eventPicture)}
+                  alt={`Preview ${index}`}
+                />
+              </div>
+              /*                 ))}
+              </Carousel> */
+            )}
+
+            {/*             {eventPicture.length > 0 && (
               <Carousel showThumbs={false} showStatus={false}>
                 {eventPicture.map((file, index) => (
                   <div key={index}>
@@ -264,7 +276,7 @@ const NewEvent = () => {
                   </div>
                 ))}
               </Carousel>
-            )}
+            )} */}
           </div>
           <div className="pr_title">
             <p>
