@@ -37,6 +37,10 @@ public class Event {
     @JoinColumn(name = "language")
     private Set<Language> languages = new HashSet<>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "location")
+    private Set<Location> locations = new HashSet<>();
+
 }
 
 // el campo createdBy tiene una relacion oney to one con la entidad User✅

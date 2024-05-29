@@ -1,18 +1,20 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import { UserProvider } from './components/UserContext';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { UserProvider } from "./components/UserContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from './components/Home';
-import NewLogin from './components/NewLogin';
-import RegistrationForm from './components/RegistrationForm';
+import Home from "./components/Home";
+import NewLogin from "./components/NewLogin";
+import RegistrationForm from "./components/RegistrationForm";
+import NewEvent from "./components/NewEvent";
 
 const App = () => {
   return (
     <UserProvider>
-      <Router>
+      <NewEvent />
+      {/*    <Router>
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -20,7 +22,7 @@ const App = () => {
             <Route path="/register" element={<RegistrationForm />} />
           </Routes>
         </div>
-      </Router>
+      </Router> */}
     </UserProvider>
   );
 };

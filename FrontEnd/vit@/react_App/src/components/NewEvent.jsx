@@ -10,7 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 import "./NewEvent.css";
 
 const NewEvent = () => {
-  const [eventPicture, setEventPicture] = useState([]);
+  const [eventPicture, setEventPicture] = useState("");
   const [eventTitle, setEventTitle] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventType, setEventType] = useState("");
@@ -45,16 +45,17 @@ const NewEvent = () => {
         console.error("Error fetching languages:", error);
       }
     };
+    
     fetchAndSetLanguages();
   }, []);
 
   const handlePictureChange = event => {
-    const files = Array.from(event.target.files);
-    if (files.length > 4) {
+    const file = event.target.file;
+    /*     if (files.length > 4) {
       alert("You can upload a maximum of 4 pictures.");
       return;
-    }
-    setEventPicture(files);
+    } */
+    setEventPicture(file);
   };
 
   const handleTitleChange = event => {
@@ -86,21 +87,21 @@ const NewEvent = () => {
       event.preventDefault();
       setError(null);
 
-      if (eventPicture.length > 4) {
+      /* if (eventPicture.length > 4) {
         setError("No puedes subir más de 4 archivos.");
         return;
-      }
+      } */
 
-      setUploading(true);
+/*       setUploading(true);
       try {
         const uploadResults = await Promise.all(
           eventPicture.map(file => uploadFile(file))
-        );
+        ); */
         const data = {
-          eventPicture: uploadResults,
+          eventPicture,
           eventTitle,
           eventDate,
-          eventType,
+          //eventType,
           eventLanguage: eventLanguage.map(lang => lang.label).join(", "),
           eventLocation: eventLocation.map(loc => loc.label).join(", "),
           eventDescription,
@@ -130,10 +131,10 @@ const NewEvent = () => {
     return languageServices(inputValue);
   }; */
 
-  const loadLocations = inputValue => {
+  /*   const loadLocations = inputValue => {
     return locationServices(inputValue);
   };
-
+ */
   return (
     <>
       <div className="title">
