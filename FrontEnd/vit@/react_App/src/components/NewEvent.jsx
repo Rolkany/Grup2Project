@@ -2,12 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import CreatableAsyncSelect from "react-select/async-creatable";
 import Select from "react-select";
 //import languageServices from "./languageServices";
-import locationServices from "./locationServices";
+//import {locationSercices} from './services/locationSercices';
 import { uploadFile } from "./firebase/config";
 import "./NewEvent.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./NewEvent.css"; // Importa la hoja de estilos personalizada
+import "./NewEvent.css";
 
 const NewEvent = () => {
   const [eventPicture, setEventPicture] = useState([]);
