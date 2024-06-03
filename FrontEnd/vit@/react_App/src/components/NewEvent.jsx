@@ -1,140 +1,131 @@
-import React, { useState, useEffect, useCallback } from "react";
-import CreatableAsyncSelect from "react-select/async-creatable";
-import Select from "react-select";
-//import languageServices from "./languageServices";
-//import {locationSercices} from './services/locationSercices';
-import { uploadFile } from "./firebase/config";
+import React, { useState, useEffect } from "react";
+import { uploadEventFile } from "../firebase/config";
+import { fetchAndSetLanguages } from "../services/languageServices";
+import { fetchAndSetLocations } from "../services/locationServices";
 import "./NewEvent.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-//import { Carousel } from "react-responsive-carousel";
-//import "./NewEvent.css";
+import user from "../data/user";
+import LanguageSelector from "./LanguageSelector";
+import LocationSelector from "./LocationSelector";
+import EventPreview from "./EventPreview";
 
 const NewEvent = () => {
-  const [eventPicture, setEventPicture] = useState("");
+  const userData = user;
+
+  // State hooks for event details
+  const [eventPicture, setEventPicture] = useState(null);
   const [eventTitle, setEventTitle] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventLanguage, setEventLanguage] = useState([]);
   const [eventLocation, setEventLocation] = useState([]);
   const [eventDescription, setEventDescription] = useState("");
-  const [submittedData, setSubmittedData] = useState(null);
-  const [languageOptions, setLanguageOptions] = useState();
+
+  // State hooks for options fetched from services
+  const [languageOptions, setLanguageOptions] = useState([]);
+  const [locationOptions, setLocationOptions] = useState([]);
+
+  // State hook for uploading status and error handling
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
+  const [eventCreated, setEventCreated] = useState(false); // State for event creation confirmation
 
+  // Fetch languages and locations on component mount
   useEffect(() => {
-    const fetchAndSetLanguages = async () => {
-      try {
-        const response = await fetch(
-          //"http://44.208.195.232:8080/Grupo2_Ver02/languages",
-          "http://localhost:8080/languages",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error("reasponse.status", response.status);
-        }
-        const language = await response.json();
-        console.log("language:", language);
-        setLanguageOptions(language);
-      } catch (error) {
-        console.error("Error fetching languages:", error);
-      }
-    };
-    fetchAndSetLanguages();
+    // Fetch and set language options
+    fetchAndSetLanguages(setLanguageOptions);
+    // Fetch and set location options
+    fetchAndSetLocations(setLocationOptions);
   }, []);
 
+  // Function to handle changes in language selection
+  const handleLanguageChange = setEventLanguage;
+
+  // Function to handle changes in location selection
+  const handleLocationChange = setEventLocation;
+
+  // Generic function to handle input changes
+  const handleChange = (event, setStateFunc) => {
+    setStateFunc(event.target.value);
+  };
+
+  // Function to handle changes in event picture upload
   const handlePictureChange = event => {
-    const file = event.target.file[0];
-    /*     if (files.length > 4) {
-      alert("You can upload a maximum of 4 pictures.");
-      return;
-    } */
+    const file = event.target.files[0];
     setEventPicture(file);
   };
 
-  const handleTitleChange = event => {
-    setEventTitle(event.target.value);
+  // Function to reset form fields
+  const resetFormFields = () => {
+    setEventPicture(null);
+    setEventTitle("");
+    setEventDate("");
+    setEventType("");
+    setEventLanguage([]);
+    setEventLocation([]);
+    setEventDescription("");
   };
 
-  const handleDateChange = event => {
-    setEventDate(event.target.value);
-  };
+  // Function to handle form submission
+  const handleSubmit = async event => {
+    event.preventDefault();
+    setError(null);
+    setUploading(true);
 
-  const handleTypeChange = event => {
-    setEventType(event.target.value);
-  };
+    try {
+      // Upload event picture and get upload results
+      const uploadResults = await uploadEventFile(eventPicture);
 
-  const handleLanguageChange = selectedOption => {
-    setEventLanguage(selectedOption);
-  };
+      // Construct event data object
+      const eventData = {
+        imgUrl: uploadResults,
+        title: eventTitle,
+        eventDate: eventDate,
+        type: eventType,
+        des: eventDescription,
+        created_By: userData.id,
+        language: eventLanguage.length > 0 ? eventLanguage[0].value : "",
+        location: eventLocation.length > 0 ? eventLocation[0].value : "",
+      };
 
-  const handleLocationChange = selectedOption => {
-    setEventLocation(selectedOption);
-  };
+      // Send event data to backend API
+      const response = await fetch("http://localhost:8080/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(eventData),
+      });
 
-  const handleDescriptionChange = event => {
-    setEventDescription(event.target.value);
-  };
+      // Log eventData to console
+      console.log("eventData:", eventData);
 
-  const handleSubmit = useCallback(
-    async event => {
-      event.preventDefault();
-      setError(null);
-
-      /*       if (eventPicture.length > 4) {
-        setError("No puedes subir más de 4 archivos.");
-        return;
+      // Throw error if response is not okay
+      if (!response.ok) {
+        throw new Error(`Error creating event: ${response.statusText}`);
       }
- */
-      setUploading(true);
-      try {
-        const uploadResults = await uploadFile(eventPicture);
-        /* Promise.all(
-          eventPicture.map(file => uploadFile(file))
-        ); */
-        const data = {
-          eventPicture: uploadResults,
-          eventTitle,
-          eventDate,
-          eventType,
-          eventLanguage: eventLanguage.map(lang => lang.label).join(", "),
-          eventLocation: eventLocation.map(loc => loc.label).join(", "),
-          eventDescription,
-        };
-        setSubmittedData(data);
-        console.log("Datos del evento:", data);
-        alert("Evento creado exitosamente!");
-      } catch (error) {
-        console.error(error);
-        setError("Fallo al subir uno o más archivos!!");
-      } finally {
-        setUploading(false);
-      }
-    },
-    [
-      eventPicture,
-      eventTitle,
-      eventDate,
-      eventType,
-      eventLanguage,
-      eventLocation,
-      eventDescription,
-    ]
-  );
 
-  /*   const loadLanguages = inputValue => {
-    return languageServices(inputValue);
-  }; */
+      // Parse response data
+      const data = await response.json();
+      console.log("data:", data);
 
-  /*   const loadLocations = inputValue => {
-    return locationServices(inputValue);
+      // Set event created confirmation to true
+      setEventCreated(true);
+
+      // Reset form fields after successful submission
+      resetFormFields();
+
+      // Show alert for successful event creation
+      alert("Event created successfully!");
+    } catch (error) {
+      // Log and set error message on error
+      console.error("Error:", error);
+      setError("Error creating event");
+    } finally {
+      // Set uploading to false after completion
+      setUploading(false);
+    }
   };
- */
+
   return (
     <>
       <div className="title">
@@ -151,13 +142,12 @@ const NewEvent = () => {
               <h2 className="event_det">Event Details</h2>
             </div>
             <label htmlFor="file-upload" className="custom-file-upload">
-              Upload Photos
+              Upload Picture
             </label>
             <input
               id="file-upload"
               type="file"
               accept="image/*"
-              //isMulti
               onChange={handlePictureChange}
               style={{ display: "none" }}
               disabled={uploading}
@@ -170,7 +160,7 @@ const NewEvent = () => {
                 type="text"
                 id="title"
                 value={eventTitle}
-                onChange={handleTitleChange}
+                onChange={e => handleChange(e, setEventTitle)}
               />
             </div>
             <div className="half">
@@ -180,7 +170,7 @@ const NewEvent = () => {
                   type="datetime-local"
                   id="date"
                   value={eventDate}
-                  onChange={handleDateChange}
+                  onChange={e => handleChange(e, setEventDate)}
                 />
               </div>
             </div>
@@ -192,44 +182,23 @@ const NewEvent = () => {
                 type="text"
                 id="type"
                 value={eventType}
-                onChange={handleTypeChange}
+                onChange={e => handleChange(e, setEventType)}
               />
             </div>
           </div>
           <div className="full">
-            <div className="item custom-select__multi-value">
-              <label
-                className="custom-select__multi-value__label"
-                htmlFor="language"
-              >
-                Language:
-              </label>
-              <Select
-                classNamePrefix="custom-select"
-                isMulti
-                options={languageOptions}
-                value={eventLanguage}
-                onChange={handleLanguageChange}
-              />
-            </div>
+            <LanguageSelector
+              options={languageOptions}
+              value={eventLanguage}
+              onChange={handleLanguageChange}
+            />
           </div>
           <div className="full">
-            <div className="item custom-select__multi-value">
-              <label
-                className="custom-select__multi-value__label"
-                htmlFor="location"
-              >
-                Location:
-              </label>
-              <CreatableAsyncSelect
-                classNamePrefix="custom-select"
-                isMulti
-                cacheOptions
-                loadOptions={loadLocations}
-                defaultOptions
-                onChange={handleLocationChange}
-              />
-            </div>
+            <LocationSelector
+              options={locationOptions}
+              value={eventLocation}
+              onChange={handleLocationChange}
+            />
           </div>
           <div className="full">
             <div className="item">
@@ -240,93 +209,27 @@ const NewEvent = () => {
                 type="text"
                 id="description"
                 value={eventDescription}
-                onChange={handleDescriptionChange}
+                onChange={e => handleChange(e, setEventDescription)}
               />
             </div>
           </div>
           <div className="action">
             <input type="reset" value="BACK" />
+            <input type="submit" value="CREATE EVENT" disabled={uploading} />
           </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
-        <div className="preview_box">
-          <div className="wraped">
-            <h2 className="ev_pw">Event Preview</h2>
-            {eventPicture && (
-              <div>
-                <img
-                  className="img-preview"
-                  src={URL.createObjectURL(eventPicture)}
-                  alt={`Preview ${index}`}
-                />
-              </div>
-              /*                 ))}
-              </Carousel> */
-            )}
 
-            {/*             {eventPicture.length > 0 && (
-              <Carousel showThumbs={false} showStatus={false}>
-                {eventPicture.map((file, index) => (
-                  <div key={index}>
-                    <img
-                      className="img-preview"
-                      src={URL.createObjectURL(file)}
-                      alt={`Preview ${index}`}
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            )} */}
-          </div>
-          <div className="pr_title">
-            <p>
-              <strong>Event Title</strong> {eventTitle}
-            </p>
-          </div>
-          <div>
-            <p>
-              <strong>Date:</strong> {eventDate}
-            </p>
-            <div>
-              <p>
-                <strong>Type:</strong> {eventType}
-              </p>
-            </div>
-            <div>
-              {" "}
-              <p>
-                <strong>Language:</strong>{" "}
-                {eventLanguage.length > 0 &&
-                  eventLanguage.map(lang => lang.label).join(", ")}
-              </p>
-            </div>
-            <div>
-              {" "}
-              <p>
-                <strong>Location:</strong>{" "}
-                {eventLocation.length > 0 &&
-                  eventLocation.map(loc => loc.label).join(", ")}
-              </p>
-            </div>
-            <div>
-              {" "}
-              <p>
-                <strong>Description:</strong> {eventDescription}
-              </p>
-            </div>
-          </div>
-          <div className="ce_button">
-            <form className="form" onSubmit={handleSubmit}>
-              <div className="action">
-                <input
-                  type="submit"
-                  value="CREATE EVENT"
-                  disabled={uploading}
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+        {/* Render the event preview component */}
+        <EventPreview
+          eventPicture={eventPicture}
+          eventTitle={eventTitle}
+          eventDate={eventDate}
+          eventType={eventType}
+          eventLanguage={eventLanguage}
+          eventLocation={eventLocation}
+          eventDescription={eventDescription}
+        />
       </div>
     </>
   );
