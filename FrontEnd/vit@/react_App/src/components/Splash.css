@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     overflow: hidden; /* Deshabilita el scroll */
-    background-color: #f5f5dc; /* Fondo de color crema */
+    background: linear-gradient(to bottom, #2222AA, #2A2AD1, #4D4DDB, #7373E3, #9A9AEB, #C0C0F2, #E6E6FA); /* Fondo degradado */
 }
 
 .splash-screen {
@@ -37,10 +37,10 @@ html, body {
     width: 80px;
     height: 80px;
     border: 10px solid transparent;
-    border-top: 10px solid orange;
-    border-right: 10px solid red;
-    border-bottom: 10px solid orange;
-    border-left: 10px solid red;
+    border-top: 10px solid #2222AA;
+    border-right: 10px solid #4D4DDB;
+    border-bottom: 10px solid #9A9AEB;
+    border-left: 10px solid #E6E6FA;
     border-radius: 50%;
     animation: spin 1s linear infinite, flicker 1s infinite alternate;
 }
@@ -56,10 +56,10 @@ html, body {
 
 @keyframes flicker {
     0% {
-        box-shadow: 0 0 15px orange, 0 0 30px red, 0 0 45px orange, 0 0 60px red;
+        box-shadow: 0 0 15px #2222AA, 0 0 30px #4D4DDB, 0 0 45px #9A9AEB, 0 0 60px #E6E6FA;
     }
     100% {
-        box-shadow: 0 0 30px red, 0 0 45px orange, 0 0 60px red, 0 0 75px orange;
+        box-shadow: 0 0 30px #2222AA, 0 0 45px #4D4DDB, 0 0 60px #9A9AEB, 0 0 75px #E6E6FA;
     }
 }
 
