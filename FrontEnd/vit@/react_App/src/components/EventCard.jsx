@@ -1,44 +1,44 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const NewEventCreate = () => {
   const [image, setImage] = useState(
-    'https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'
+    "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
   );
   const [languages, setLanguages] = useState([]);
-  const [selectedLanguage, setSelectedLanguage] = useState('');
-  const [title, setTitle] = useState('');
-  const [eventDate, setEventDate] = useState('');
-  const [eventType, setEventType] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [title, setTitle] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventType, setEventType] = useState("");
   const [eventLocation, setEventLocation] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [eventDescription, setEventDescription] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
 
   useEffect(() => {
     const fetchLanguages = async () => {
       try {
-        const response = await fetch('http://localhost:8080/languages');
+        const response = await fetch("http://localhost:8080/languages");
         if (!response.ok) {
-          throw new Error('Error al recuperar los idiomas disponibles');
+          throw new Error("Error al recuperar los idiomas disponibles");
         }
         const data = await response.json();
         setLanguages(data);
         console.log(data);
       } catch (error) {
-        console.error('Error al recuperar los idiomas disponibles:', error);
+        console.error("Error al recuperar los idiomas disponibles:", error);
       }
     };
     const fetchLocations = async () => {
       try {
-        const response = await fetch('http://localhost:8080/locations');
+        const response = await fetch("http://localhost:8080/locations");
         if (!response.ok) {
-          throw new Error('Error al recuperar las localizaciones disponibles');
+          throw new Error("Error al recuperar las localizaciones disponibles");
         }
         const data = await response.json();
         setEventLocation(data);
         console.log(data);
       } catch (error) {
         console.error(
-          'Error al recupera las localizaciones disponibles: ',
+          "Error al recupera las localizaciones disponibles: ",
           error
         );
       }
@@ -47,18 +47,18 @@ const NewEventCreate = () => {
     fetchLocations();
   }, []);
 
-  const handleImageChange = (event) => {
+  const handleImageChange = event => {
     const imagenNueva = event.target.files[0];
     if (imagenNueva) {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         setImage(e.target.result);
       };
       reader.readAsDataURL(imagenNueva);
     }
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
 
     console.log({
@@ -69,12 +69,12 @@ const NewEventCreate = () => {
       selectedLocation,
       eventDescription,
     });
-    setTitle('');
-    setEventDate('');
-    setSelectedLanguage('');
-    setEventType('');
-    setSelectedLocation('');
-    setEventDescription('');
+    setTitle("");
+    setEventDate("");
+    setSelectedLanguage("");
+    setEventType("");
+    setSelectedLocation("");
+    setEventDescription("");
   };
   return (
     <div className="page-border">
@@ -84,7 +84,7 @@ const NewEventCreate = () => {
         </div>
         <div
           className="container events card p-4"
-          style={{ backgroundColor: '#e6e6fa' }}
+          style={{ backgroundColor: "#e6e6fa" }}
         >
           <form onSubmit={handleFormSubmit} className="row g-3" id="eventForm">
             <div className="col-12 d-flex flex-column align-items-center mb-3">
@@ -93,14 +93,14 @@ const NewEventCreate = () => {
                 src={image}
                 alt="Icono de cargar imagen"
                 className="img-thumbnail rounded-circle"
-                style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
               />
               <input
                 type="file"
                 id="fileInput"
                 onChange={handleImageChange}
                 className="form-control mt-2"
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
               />
               <label
                 htmlFor="fileInput"
@@ -121,7 +121,7 @@ const NewEventCreate = () => {
                 name="eventTitle"
                 placeholder="Título del evento"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={e => setTitle(e.target.value)}
               />
             </div>
 
@@ -135,7 +135,7 @@ const NewEventCreate = () => {
                 id="eventDateTime"
                 name="eventDateTime"
                 value={eventDate}
-                onChange={(e) => setEventDate(e.target.value)}
+                onChange={e => setEventDate(e.target.value)}
               />
             </div>
 
@@ -148,10 +148,10 @@ const NewEventCreate = () => {
                 id="eventLang"
                 name="idioma"
                 value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
+                onChange={e => setSelectedLanguage(e.target.value)}
               >
                 <option value="">Seleccionar idioma</option>
-                {languages.map((language) => (
+                {languages.map(language => (
                   <option key={language.id} value={language.language}>
                     {language.language}
                   </option>
@@ -167,10 +167,10 @@ const NewEventCreate = () => {
                 id="eventLocation"
                 name="location"
                 value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
+                onChange={e => setSelectedLocation(e.target.value)}
               >
                 <option value="">Seleccionar localizacion</option>
-                {eventLocation.map((event) => (
+                {eventLocation.map(event => (
                   <option key={event.id} value={event.location}>
                     {event.location}
                   </option>
@@ -189,7 +189,7 @@ const NewEventCreate = () => {
                 name="eventType"
                 placeholder="Tipo de evento"
                 value={eventType}
-                onChange={(e) => setEventType(e.target.value)}
+                onChange={e => setEventType(e.target.value)}
               />
             </div>
 
@@ -204,7 +204,7 @@ const NewEventCreate = () => {
                 placeholder="Descripción del evento"
                 rows="4"
                 value={eventDescription}
-                onChange={(e) => setEventDescription(e.target.value)}
+                onChange={e => setEventDescription(e.target.value)}
               ></textarea>
             </div>
 
