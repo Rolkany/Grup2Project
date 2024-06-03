@@ -1,12 +1,15 @@
 import Event from "./Event";
 import { useState, useEffect } from "react";
-import eventsData from "../data/events";
+//import eventsData from "../data/events";
 
 function EventList() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    setEvents(eventsData);
+    fetch("http://localhost:8080/events")
+      .then(response => response.json())
+      .then(data => setEvents(data))
+      .catch(error => console.error("eROR GEGET:", error));
   }, []);
 
   console.log(events);

@@ -4,7 +4,6 @@ import "./Event.css";
 
 function Event({ event }) {
   const {
-    id,
     imgUrl,
     title,
     eventDate,
@@ -48,7 +47,7 @@ function Event({ event }) {
               <div className="infobox">
                 <div className="subTitle">
                   <h4>
-                    {id} organizará un {type} en {location}.
+                    organizará un {type} en {location}.
                   </h4>
                 </div>
                 <div className="container">

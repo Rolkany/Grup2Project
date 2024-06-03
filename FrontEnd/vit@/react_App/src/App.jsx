@@ -9,20 +9,22 @@ import Home from "./components/Home";
 import NewLogin from "./components/NewLogin";
 import RegistrationForm from "./components/RegistrationForm";
 import NewEvent from "./components/NewEvent";
+import Event from "./components/Event";
+import EventList from "./components/EventList";
 
 const App = () => {
   return (
     <UserProvider>
-      <NewEvent />
-      {/*    <Router>
+      <Router>
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<NewLogin />} />
             <Route path="/register" element={<RegistrationForm />} />
+            <Route path="/creareventos" element={<NewEvent />} />
           </Routes>
         </div>
-      </Router> */}
+      </Router>
     </UserProvider>
   );
 };
