@@ -129,7 +129,7 @@ const NewEvent = () => {
   return (
     <>
       <div className="title">
-        <h1>CREATE YOUR EVENT</h1>
+        <h1 className="cve">CREA TU EVENTO</h1>
       </div>
       <div className="boxes">
         <form

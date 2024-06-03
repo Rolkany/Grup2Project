@@ -11,6 +11,7 @@ import RegistrationForm from "./components/RegistrationForm";
 import NewEvent from "./components/NewEvent";
 import Event from "./components/Event";
 import EventList from "./components/EventList";
+import MisEventos from "./components/MisEventos";
 
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
             <Route path="/login" element={<NewLogin />} />
             <Route path="/register" element={<RegistrationForm />} />
             <Route path="/creareventos" element={<NewEvent />} />
+            <Route path="/eventlist" element={<EventList />} />
+            <Route path="/miseventos" element={<MisEventos />} />
           </Routes>
         </div>
       </Router>

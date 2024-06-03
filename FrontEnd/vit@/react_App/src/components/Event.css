@@ -1,7 +1,4 @@
-/* General layout and typography stuff */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
-
-* {
+/* * {
   box-sizing: border-box;
   position: relative;
   transition: all 0.3s ease;
@@ -17,15 +14,8 @@ body {
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
   font-size: 16px;
-}
+} */
 
-h1 {
-  margin-bottom: 0.5em;
-  font-weight: inherit;
-  line-height: 1.2;
-  color: #1c5b72;
-  font-size: 2.618em;
-}
 .subTitle {
   margin-bottom: 1em;
   font-weight: inherit;
@@ -40,19 +30,9 @@ p {
 }
 
 @media (min-width: 800px) {
-  h1 {
-    font-size: 4.236em;
-    font-weight: 300;
-  }
 }
 
 @media (min-width: 800px) {
-  p {
-    font-size: 1.3em;
-  }
-}
-main {
-  padding: 0 64px 64px;
 }
 
 .card {
@@ -101,11 +81,14 @@ main {
 }
 
 .title {
-  margin: 0;
   padding: 24px;
   font-size: 30px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  font-size: 2.618em;
 }
 
 .description {
@@ -115,12 +98,10 @@ main {
   line-height: 1.5;
 }
 
-.descBox {
-}
 .dateTime {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .infoBox {
   display: flex;

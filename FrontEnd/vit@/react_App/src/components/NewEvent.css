@@ -5,7 +5,10 @@
   font-family: "Source Sans Pro", sans-serif;
   text-decoration: none;
 }
-
+.cve {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
 .title {
   padding: 1rem;
   text-align: center;
@@ -22,10 +25,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 .boxes {
   display: flex;
   flex-direction: row;
 }
+
 form {
   background: rgba(89, 92, 121, 0.5);
   width: 800px;
@@ -128,9 +133,10 @@ form .action input {
   margin-right: 10px;
   text-align: center !important;
 }
+
 form .action {
   display: flex !important;
-  justify-content: center !important;
+  justify-content: space-between !important;
 }
 @media (max-width: 480px) {
   form .half {

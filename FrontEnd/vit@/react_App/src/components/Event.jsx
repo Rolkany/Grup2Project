@@ -47,7 +47,7 @@ function Event({ event }) {
               <div className="infobox">
                 <div className="subTitle">
                   <h4>
-                    organizará un {type} en {location}.
+                    Se organizará un {type} en {location}.
                   </h4>
                 </div>
                 <div className="container">
