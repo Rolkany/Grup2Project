@@ -21,8 +21,24 @@ export const storage = getStorage(app);
  * @return {Promise<String>} URL of the uploaded file
  */
 
-export async function uploadFile(file) {
+/* export async function uploadFile(file) {
     const storageRef = ref(storage, v4());
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url;
+} */
+
+export async function uploadEventFile(file) {
+    const storagePath = `Events/${v4()}`;
+    const storageRef = ref(storage, storagePath);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url;
+}
+
+export async function uploadPerfilFile(file) {
+    const storagePath = `Perfiles/${v4()}`;
+    const storageRef = ref(storage, storagePath);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
     return url;

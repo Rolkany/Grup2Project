@@ -1,24 +1,34 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import { UserProvider } from './components/UserContext';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Splash from './components/Splash';
-import Login from './components/Login';
-import Home from './components/Home';
-import NewLogin from './components/NewLogin';
-import RegistrationForm from './components/RegistrationForm';
-import QuienesSomos from './components/QuienesSomos';
+import { UserProvider } from "./components/UserContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Footer from './components/Footer';
-
+import Home from "./components/Home";
+import NewLogin from "./components/NewLogin";
+import RegistrationForm from "./components/RegistrationForm";
+import NewEvent from "./components/NewEvent";
+import Event from "./components/Event";
+import EventList from "./components/EventList";
+import MisEventos from "./components/MisEventos";
 
 const App = () => {
   return (
-<>
-   <QuienesSomos/>
-   </>
+    <UserProvider>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<NewLogin />} />
+            <Route path="/register" element={<RegistrationForm />} />
+            <Route path="/creareventos" element={<NewEvent />} />
+            <Route path="/eventlist" element={<EventList />} />
+            <Route path="/miseventos" element={<MisEventos />} />
+          </Routes>
+        </div>
+      </Router>
+    </UserProvider>
   );
 };
 

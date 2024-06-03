@@ -1,24 +1,51 @@
-<<<<<<< HEAD
-import { useContext, useState } from 'react';
-import './EventCard.css';
-import UserContext from './UserContext';
-=======
-import { useState } from "react";
-import "./EventCard.css";
-import logo from "./image_Vertex.png";
->>>>>>> origin/main
+import { useState, useEffect } from "react";
 
-const EventCard = () => {
+const NewEventCreate = () => {
   const [image, setImage] = useState(
     "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
   );
-  const [title, setTitle] = useState('');
-  const [dateTime, setDateTime] = useState('');
-  const [lang, setLang] = useState('');
-  const [type, setType] = useState('');
-  const [location, setLocation] = useState('');
-  const [des, setDes] = useState('');
-  const { userId } = useContext(UserContext);
+  const [languages, setLanguages] = useState([]);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [title, setTitle] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [eventLocation, setEventLocation] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
+
+  useEffect(() => {
+    const fetchLanguages = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/languages");
+        if (!response.ok) {
+          throw new Error("Error al recuperar los idiomas disponibles");
+        }
+        const data = await response.json();
+        setLanguages(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error al recuperar los idiomas disponibles:", error);
+      }
+    };
+    const fetchLocations = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/locations");
+        if (!response.ok) {
+          throw new Error("Error al recuperar las localizaciones disponibles");
+        }
+        const data = await response.json();
+        setEventLocation(data);
+        console.log(data);
+      } catch (error) {
+        console.error(
+          "Error al recupera las localizaciones disponibles: ",
+          error
+        );
+      }
+    };
+    fetchLanguages();
+    fetchLocations();
+  }, []);
 
   const handleImageChange = event => {
     const imagenNueva = event.target.files[0];
@@ -31,40 +58,58 @@ const EventCard = () => {
     }
   };
 
-  const handleFormSubmit = async () => {};
+  const handleFormSubmit = async event => {
+    event.preventDefault();
 
+    console.log({
+      title,
+      eventDate,
+      selectedLanguage,
+      eventType,
+      selectedLocation,
+      eventDescription,
+    });
+    setTitle("");
+    setEventDate("");
+    setSelectedLanguage("");
+    setEventType("");
+    setSelectedLocation("");
+    setEventDescription("");
+  };
   return (
-    <div className="event_container">
-      <div className="container events card p-4">
-        <form onSubmit={handleFormSubmit} action="" id="eventForm">
-          <div>
-            <h1 className="title">CRETE YOUR EVENT</h1>
-          </div>
-          <div className="">
-            <img
-              id="eventPicture"
-              src={image}
-              alt="Icono de cargar imagen"
-              className="img-thumbnail"
-              style={{
-                width: "160px",
-                height: "160px",
-                objectFit: "cover",
-              }}
-            />
-            <input
-              type="file"
-              id="fileInput"
-              onChange={handleImageChange}
-              className="form-control mt-2"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="fileInput" className="btn btn-outline-primary mt-2">
-              Cargar Imagen
-            </label>
-          </div>
+    <div className="page-border">
+      <div className="container d-flex flex-column align-items-center">
+        <div className="mb-4">
+          <h1 className="title">Crear Evento</h1>
+        </div>
+        <div
+          className="container events card p-4"
+          style={{ backgroundColor: "#e6e6fa" }}
+        >
+          <form onSubmit={handleFormSubmit} className="row g-3" id="eventForm">
+            <div className="col-12 d-flex flex-column align-items-center mb-3">
+              <img
+                id="eventPicture"
+                src={image}
+                alt="Icono de cargar imagen"
+                className="img-thumbnail rounded-circle"
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
+              />
+              <input
+                type="file"
+                id="fileInput"
+                onChange={handleImageChange}
+                className="form-control mt-2"
+                style={{ display: "none" }}
+              />
+              <label
+                htmlFor="fileInput"
+                className="btn btn-outline-primary mt-2"
+              >
+                Cargar Imagen
+              </label>
+            </div>
 
-<<<<<<< HEAD
             <div className="col-12">
               <label className="form-label" htmlFor="eventTitle">
                 Título del evento*
@@ -76,7 +121,7 @@ const EventCard = () => {
                 name="eventTitle"
                 placeholder="Título del evento"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={e => setTitle(e.target.value)}
               />
             </div>
 
@@ -89,8 +134,8 @@ const EventCard = () => {
                 type="datetime-local"
                 id="eventDateTime"
                 name="eventDateTime"
-                value={dateTime}
-                onChange={(e) => setDateTime(e.target.value)}
+                value={eventDate}
+                onChange={e => setEventDate(e.target.value)}
               />
             </div>
 
@@ -98,15 +143,39 @@ const EventCard = () => {
               <label className="form-label" htmlFor="eventLang">
                 Idioma*
               </label>
-              <input
+              <select
                 className="form-control"
-                type="text"
                 id="eventLang"
                 name="idioma"
-                placeholder="Idioma"
-                value={lang}
-                onChange={(e) => setLang(e.target.value)}
-              />
+                value={selectedLanguage}
+                onChange={e => setSelectedLanguage(e.target.value)}
+              >
+                <option value="">Seleccionar idioma</option>
+                {languages.map(language => (
+                  <option key={language.id} value={language.language}>
+                    {language.language}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="col-12">
+              <label className="form-label" htmlFor="eventLocation">
+                Localizacion*
+              </label>
+              <select
+                className="form-control"
+                id="eventLocation"
+                name="location"
+                value={selectedLocation}
+                onChange={e => setSelectedLocation(e.target.value)}
+              >
+                <option value="">Seleccionar localizacion</option>
+                {eventLocation.map(event => (
+                  <option key={event.id} value={event.location}>
+                    {event.location}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="col-12">
@@ -119,23 +188,8 @@ const EventCard = () => {
                 id="eventType"
                 name="eventType"
                 placeholder="Tipo de evento"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </div>
-
-            <div className="col-12">
-              <label className="form-label" htmlFor="eventLocation">
-                Lugar*
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="eventLocation"
-                name="eventLocation"
-                placeholder="Lugar del evento"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={eventType}
+                onChange={e => setEventType(e.target.value)}
               />
             </div>
 
@@ -149,112 +203,32 @@ const EventCard = () => {
                 name="eventDescript"
                 placeholder="Descripción del evento"
                 rows="4"
-                value={des}
-                onChange={(e) => setDes(e.target.value)}
+                value={eventDescription}
+                onChange={e => setEventDescription(e.target.value)}
               ></textarea>
             </div>
-=======
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventTitle">
-              Título del evento*
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              id="eventTitle"
-              name="eventTitle"
-              placeholder="Título del evento"
-            />
-          </div>
 
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventDateTime">
-              Fecha y Hora del evento*
-            </label>
-            <input
-              className="form-control"
-              type="datetime-local"
-              id="eventDateTime"
-              name="eventDateTime"
-            />
-          </div>
+            <div className="col-12">
+              <p>Campos marcados con (*) son obligatorios.</p>
+            </div>
 
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventLang">
-              Idioma*
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              id="eventLang"
-              name="idioma"
-              placeholder="Idioma"
-            />
-          </div>
-
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventType">
-              Tipo de evento*
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              id="eventType"
-              name="eventType"
-              placeholder="Tipo de evento"
-            />
-          </div>
-
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventLocation">
-              Lugar*
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              id="eventLocation"
-              name="eventLocation"
-              placeholder="Lugar del evento"
-            />
-          </div>
-
-          <div className="col-12">
-            <label className="form-label" htmlFor="eventDescript">
-              Descripción del evento*
-            </label>
-            <textarea
-              className="form-control"
-              id="eventDescript"
-              name="eventDescript"
-              placeholder="Descripción del evento"
-              rows="4"
-            ></textarea>
-          </div>
->>>>>>> origin/main
-
-          <div className="col-12">
-            <p>Campos marcados con (*) son obligatorios.</p>
-          </div>
-
-          <div className="col-12 d-flex justify-content-between">
-            <a
-              className="btn btn-secondary"
-              href="../Profile/profile.html"
-              id="volver"
-            >
-              Cancelar
-            </a>
-            <button className="btn btn-primary" id="crear">
-              Event Preview
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className="logo">
-        <img src={logo} alt="Logo" className="logo" />
+            <div className="col-12 d-flex justify-content-between">
+              <a
+                className="btn btn-secondary"
+                href="../Profile/profile.html"
+                id="volver"
+              >
+                Cancelar
+              </a>
+              <button className="btn btn-primary" id="crear">
+                Crear
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default EventCard;
+export default NewEventCreate;

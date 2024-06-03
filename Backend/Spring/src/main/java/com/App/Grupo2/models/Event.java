@@ -29,14 +29,10 @@ public class Event {
     private String title;
     private LocalDateTime eventDate;
     private String des;
-    @OneToOne
-    @JoinColumn(name = "createdBy", referencedColumnName = "id")
-    private User createdBy;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @JoinColumn(name = "language")
-    private Set<Language> languages = new HashSet<>();
-
+    private String type;
+    private String language;
+    private String location;
+    private String created_By;
 }
 
 // el campo createdBy tiene una relacion oney to one con la entidad User✅

@@ -1,0 +1,17 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+.eventsBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.eventsBox .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
