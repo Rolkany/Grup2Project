@@ -29,7 +29,7 @@ export const storage = getStorage(app);
 } */
 
 export async function uploadEventFile(file) {
-    const storagePath = `uploads/${v4()}`;
+    const storagePath = `Events/${v4()}`;
     const storageRef = ref(storage, storagePath);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
