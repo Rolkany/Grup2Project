@@ -54,7 +54,9 @@ public class EventServices {
             event.setTitle(eventToUpdate.getTitle());
             event.setEventDate(eventToUpdate.getEventDate());
             event.setDes(eventToUpdate.getDes());
-            event.setCreatedBy(eventToUpdate.getCreatedBy());
+            event.setType(eventToUpdate.getType());
+            event.setLanguage(eventToUpdate.getLanguage());
+            event.setLocation(eventToUpdate.getLocation());
             return eventRepository.save(event);
         }
         return null;

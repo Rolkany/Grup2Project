@@ -4,6 +4,7 @@ package com.App.Grupo2.comtrollers;
 /* ---------- Imports ---------- */
 import java.util.List;
 import com.App.Grupo2.models.Language;
+import com.App.Grupo2.models.Location;
 import com.App.Grupo2.services.LanguageServices;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
