@@ -33,53 +33,44 @@ function Event({ event }) {
   const { formattedDate, formattedTime } = formatDate(eventDate);
 
   return (
-    <>
-      <main>
-        <div className="card">
-          <div
-            className="background"
-            style={{ backgroundImage: `url(${event.imgUrl})` }}
-          >
-            <div className="info">
+    <div className="card">
+      <div
+        className="background"
+        style={{ backgroundImage: `url(${event.imgUrl})` }}
+      >
+        <div className="info">
+          <div>
+            <h1 className="title">{title}</h1>
+          </div>
+          <div className="infobox">
+            <div className="subTitle">
+              <h4>
+                Se organizará un {type} en {location}.
+              </h4>
+            </div>
+            <div className="container">
+              <p className="description row">{des}</p>
+            </div>
+            <div className="dateTime">
+              <p>Fecha De Evento</p>
+              <p>{formattedDate}</p>
+              <p>Hora De Evento</p>
+              <p>{formattedTime}</p>
+            </div>
+            <div className="fliBox">
               <div>
-                <h1 className="title">{title}</h1>
+                <p>Lugar</p>
+                <p>{location}</p>
               </div>
-              <div className="infobox">
-                <div className="subTitle">
-                  <h4>
-                    Se organizará un {type} en {location}.
-                  </h4>
-                </div>
-                <div className="container">
-                  <p className="description row">{des}</p>
-                </div>
-                <div className="dateTime">
-                  <p>Fecha</p>
-                  <br />
-                  <p>{formattedDate}</p>
-                  <p>Hora</p>
-                  <br />
-                  <p>{formattedTime}</p>
-                </div>
-                <div className="fliBox">
-                  <div></div>
-                  <div>
-                    <p>Lugar</p>
-                    <br />
-                    <p>{location}</p>
-                  </div>
-                  <div>
-                    <p>Idioma</p>
-                    <br />
-                    <p>{language}</p>
-                  </div>
-                </div>
+              <div>
+                <p>Idioma</p>
+                <p>{language}</p>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
 

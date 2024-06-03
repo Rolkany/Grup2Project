@@ -9,14 +9,16 @@ function EventList() {
     fetch("http://localhost:8080/events")
       .then(response => response.json())
       .then(data => setEvents(data))
-      .catch(error => console.error("eROR GEGET:", error));
+      .catch(error => console.error("eROR GET:", error));
   }, []);
 
   console.log(events);
   return (
-    <>
-      <main className="container-xl mt-5">
+    <div className="page">
+      <div>
         <h1>Event collection</h1>
+      </div>
+      <div className="eventsBox">
         <div className="row mt-5">
           {events.map(event => (
             <div key={event.id}>
@@ -24,8 +26,8 @@ function EventList() {
             </div>
           ))}
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
 export default EventList;

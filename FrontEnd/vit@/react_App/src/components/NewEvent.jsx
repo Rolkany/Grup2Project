@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { uploadEventFile } from "../firebase/config";
 import { fetchAndSetLanguages } from "../services/languageServices";
 import { fetchAndSetLocations } from "../services/locationServices";
 import "./NewEvent.css";
-import user from "../data/user";
+//import user from "../data/user";
 import LanguageSelector from "./LanguageSelector";
 import LocationSelector from "./LocationSelector";
 import EventPreview from "./EventPreview";
+import UserContext from "./UserContext";
 
 const NewEvent = () => {
-  const userData = user;
+  const { userId } = useContext(UserContext);
 
   // State hooks for event details
   const [eventPicture, setEventPicture] = useState(null);
@@ -82,7 +83,7 @@ const NewEvent = () => {
         eventDate: eventDate,
         type: eventType,
         des: eventDescription,
-        created_By: userData.id,
+        created_By: userId.id,
         language: eventLanguage.length > 0 ? eventLanguage[0].value : "",
         location: eventLocation.length > 0 ? eventLocation[0].value : "",
       };
@@ -128,7 +129,7 @@ const NewEvent = () => {
 
   return (
     <>
-      <div className="title">
+      <div className="titleBox">
         <h1 className="cve">CREA TU EVENTO</h1>
       </div>
       <div className="boxes">
