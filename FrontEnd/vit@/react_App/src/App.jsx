@@ -9,9 +9,10 @@ import Home from "./components/Home";
 import NewLogin from "./components/NewLogin";
 import RegistrationForm from "./components/RegistrationForm";
 import NewEvent from "./components/NewEvent";
-import Event from "./components/Event";
 import EventList from "./components/EventList";
 import MisEventos from "./components/MisEventos";
+import "./index.css";
+import NewProfile from "./components/NewProfile";
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
             <Route path="/register" element={<RegistrationForm />} />
             <Route path="/creareventos" element={<NewEvent />} />
             <Route path="/eventlist" element={<EventList />} />
-            <Route path="/miseventos" element={<MisEventos />} />
+            <Route path="/eventlist" element={<EventList />} />
+            <Route path="/newperfil" element={<NewProfile />} />
           </Routes>
         </div>
       </Router>

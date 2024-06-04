@@ -1,17 +1,33 @@
 .page {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.evlisttitle {
+  color: rgba(0, 9, 59, 0.829);
 }
 .eventsBox {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  padding: 30px;
+  gap: 10px;
 }
 
-.eventsBox .row {
+/*
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.row {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
+*/

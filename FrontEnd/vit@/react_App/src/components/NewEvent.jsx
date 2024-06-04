@@ -3,11 +3,12 @@ import { uploadEventFile } from "../firebase/config";
 import { fetchAndSetLanguages } from "../services/languageServices";
 import { fetchAndSetLocations } from "../services/locationServices";
 import "./NewEvent.css";
-//import user from "../data/user";
+import NewHeader from "./NewHeader";
 import LanguageSelector from "./LanguageSelector";
 import LocationSelector from "./LocationSelector";
 import EventPreview from "./EventPreview";
 import UserContext from "./UserContext";
+import Footer from "./Footer";
 
 const NewEvent = () => {
   const { userId } = useContext(UserContext);
@@ -129,12 +130,13 @@ const NewEvent = () => {
 
   return (
     <>
+      <NewHeader />
       <div className="titleBox">
         <h1 className="cve">CREA TU EVENTO</h1>
       </div>
       <div className="boxes">
         <form
-          className="form"
+          className="cevent_form"
           onSubmit={handleSubmit}
           style={{ marginRight: "20px" }}
         >
@@ -215,7 +217,6 @@ const NewEvent = () => {
             </div>
           </div>
           <div className="action">
-            <input type="reset" value="BACK" />
             <input type="submit" value="CREATE EVENT" disabled={uploading} />
           </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
@@ -232,6 +233,7 @@ const NewEvent = () => {
           eventDescription={eventDescription}
         />
       </div>
+      <Footer />
     </>
   );
 };

@@ -7,21 +7,14 @@
 }
 .cve {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: rgba(0, 9, 59, 0.829);
 }
+
 .titleBox {
   padding: 1rem;
   text-align: center;
   font-style: normal;
   color: rgb(255, 255, 255);
-}
-body {
-  background: linear-gradient(to left, #4d4ddb, #7373e3, #9a9aeb, #c0c0f2);
-  /* background: url(../public/background.jpg); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .boxes {
@@ -29,7 +22,7 @@ body {
   flex-direction: row;
 }
 
-form {
+.cevent_form {
   background: rgba(89, 92, 121, 0.5);
   width: 800px;
   margin: 10px;
@@ -47,18 +40,18 @@ form {
   margin-bottom: 30px;
 }
 
-form .half {
+.cevent_form > .half {
   display: flex;
   justify-content: space-between;
 }
 
-form .half .item {
+.cevent_form > .half .item {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-form label {
+.cevent_form > label {
   display: block;
   color: rgba(0, 9, 59, 0.829);
   font-size: 13px;
@@ -66,7 +59,7 @@ form label {
   margin-bottom: 8px;
 }
 
-form .half .item input {
+.cevent_form > .half .item input {
   background: transparent;
   border-radius: 4px;
   border: 1px solid rgba(0, 9, 59, 0.829);
@@ -78,7 +71,7 @@ form .half .item input {
   color: rgba(0, 9, 59, 0.829);
 }
 
-form .full input {
+.cevent_form > .full input {
   background: transparent;
   border-radius: 4px;
   border: 1px solid rgba(0, 9, 59, 0.829);
@@ -89,7 +82,7 @@ form .full input {
   margin-bottom: 24px;
   font-size: 17px;
 }
-form .full textarea {
+.cevent_form > .full textarea {
   background: transparent;
   border-radius: 4px;
   border: 1px solid rgba(0, 9, 59, 0.829);
@@ -100,7 +93,7 @@ form .full textarea {
   font-size: 17px;
   margin-bottom: 32px;
 }
-form .action {
+.cevent_form > .action {
   margin-bottom: 32px;
 }
 label.custom-file-upload {
@@ -117,7 +110,7 @@ label.custom-file-upload {
   margin-right: 10px;
   text-align: center !important;
 }
-form .action input {
+.cevent_form > .action input {
   background: transparent;
   border-radius: 4px;
   border: 1px solid rgba(0, 9, 59, 0.829);
@@ -132,22 +125,22 @@ form .action input {
   text-align: center !important;
 }
 
-form .action {
+.cevent_form > .action {
   display: flex !important;
   justify-content: space-between !important;
 }
 @media (max-width: 480px) {
-  form .half {
+  .cevent_form > .half {
     flex-direction: column;
   }
-  form .half .item {
+  .cevent_form > .half .item {
     width: 100%;
   }
-  form .action {
+  .cevent_form > .action {
     display: flex;
     flex-direction: column;
   }
-  form .action input {
+  .cevent_form > .action input {
     margin-bottom: 10px;
     width: 100%;
   }

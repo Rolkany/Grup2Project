@@ -1,18 +1,9 @@
 // EventPreview.js
 import React from "react";
-import "./Event.css";
+import "../style/Event";
 
 function Event({ event }) {
-  const {
-    imgUrl,
-    title,
-    eventDate,
-    des,
-    type,
-    language,
-    location,
-    created_By,
-  } = event;
+  const { imgUrl, title, eventDate, des, type, language, location } = event;
 
   // Función para formatear la fecha y hora
   const formatDate = dateTimeString => {
@@ -33,10 +24,10 @@ function Event({ event }) {
   const { formattedDate, formattedTime } = formatDate(eventDate);
 
   return (
-    <div className="card">
+    <div className="cardEvent">
       <div
-        className="background"
-        style={{ backgroundImage: `url(${event.imgUrl})` }}
+        className="backgroundEvent"
+        style={{ backgroundImage: `url(${imgUrl})` }}
       >
         <div className="info">
           <div>
@@ -52,10 +43,8 @@ function Event({ event }) {
               <p className="description row">{des}</p>
             </div>
             <div className="dateTime">
-              <p>Fecha De Evento</p>
-              <p>{formattedDate}</p>
-              <p>Hora De Evento</p>
-              <p>{formattedTime}</p>
+              <p>Fecha De Evento: {formattedDate}</p>
+              <p>Hora De Evento: {formattedTime}</p>
             </div>
             <div className="fliBox">
               <div>

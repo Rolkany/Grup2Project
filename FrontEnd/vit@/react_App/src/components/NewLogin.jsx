@@ -4,61 +4,61 @@ import {
   MDBRow,
   MDBCol,
   MDBInput,
-} from 'mdb-react-ui-kit';
-import logo from './image_Vertex.png';
-import { useContext, useState } from 'react';
-import UserContext from './UserContext';
+} from "mdb-react-ui-kit";
+import logo from "./image_Vertex.png";
+import { useContext, useState } from "react";
+import UserContext from "./UserContext";
 
-import './NewLogin.css';
-import NewProfile from './NewProfile';
-import Footer from './Footer';
+import "./NewLogin.css";
+import NewProfile from "./NewProfile";
+import Footer from "./Footer";
 
 const NewLogin = () => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const { setUserId } = useContext(UserContext);
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = e => {
     setEmail(e.target.value);
   };
-  const handlePassChange = (e) => {
+  const handlePassChange = e => {
     setPass(e.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const userLogin = { email, pass };
 
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/users/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userLogin),
       });
       if (!response.ok) {
-        throw new Error('Fallo en el proceso de login', response.status);
+        throw new Error("Fallo en el proceso de login", response.status);
       }
 
       const dataResponse = await response.json();
-      console.log('La respuesta es: ', dataResponse);
+      console.log("La respuesta es: ", dataResponse);
       const userId = dataResponse;
       setUserId(userId);
       setLoggedIn(true);
     } catch (error) {
-      alert('Error en el proceso de login: ' + error.message);
-      console.error('Error en el login: ', error.message);
+      alert("Error en el proceso de login: " + error.message);
+      console.error("Error en el login: ", error.message);
     }
 
-    console.log('email: ', email);
-    console.log('pass: ', pass);
+    console.log("email: ", email);
+    console.log("pass: ", pass);
     console.log(userLogin);
 
-    setEmail('');
-    setPass('');
+    setEmail("");
+    setPass("");
   };
   return (
     <>
@@ -70,7 +70,7 @@ const NewLogin = () => {
             <MDBCol col="6" className="mb-5">
               <div className="d-flex flex-column ms-5">
                 <div className="text-center">
-                  <img src={logo} style={{ width: '100 px' }} alt="logo" />
+                  <img src={logo} style={{ width: "100 px" }} alt="logo" />
                   <h4 className="mt-1 mb-5 pb-1">Vertex</h4>
                 </div>
 
@@ -98,7 +98,7 @@ const NewLogin = () => {
                     <MDBBtn
                       type="submit"
                       className="mb-4 w-100 gradient-custom-2"
-                      style={{ width: '100%' }}
+                      style={{ width: "100%" }}
                     >
                       Entra!
                     </MDBBtn>

@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
-=======
 import { useState } from "react";
->>>>>>> origin/HEAD
 
 const NewRegistrationUser = () => {
   //const { userId } = useContext(UserContext);
