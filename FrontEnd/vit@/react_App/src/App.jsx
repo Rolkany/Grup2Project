@@ -13,6 +13,7 @@ import EventList from "./components/EventList";
 import MisEventos from "./components/MisEventos";
 import "./index.css";
 import NewProfile from "./components/NewProfile";
+import EditProfile from "./components/EditProfile";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/eventlist" element={<EventList />} />
             <Route path="/eventlist" element={<EventList />} />
             <Route path="/newperfil" element={<NewProfile />} />
+            <Route path="/editprofile" element={<EditProfile />} />
           </Routes>
         </div>
       </Router>

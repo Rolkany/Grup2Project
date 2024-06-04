@@ -1,6 +1,6 @@
 // EventPreview.js
 import React from "react";
-import "../style/Event";
+import "./Event";
 
 function Event({ event }) {
   const { imgUrl, title, eventDate, des, type, language, location } = event;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+//import "./register.css";
 
 const NewRegistrationUser = () => {
   //const { userId } = useContext(UserContext);
@@ -14,7 +15,6 @@ const NewRegistrationUser = () => {
   const [des, setDes] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
-  const [points, setPoints] = useState("");
 
   const handleImageChange = e => {
     const imagenNueva = e.target.files[0];
@@ -37,7 +37,6 @@ const NewRegistrationUser = () => {
     des,
     phone,
     address,
-    points,
   };
 
   const handleFormSubmit = async event => {
@@ -219,20 +218,6 @@ const NewRegistrationUser = () => {
                 placeholder="Telefono"
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
-              />
-            </div>
-            <div className="col-12">
-              <label className="form-label" htmlFor="points">
-                Puntos iniciales*
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="points"
-                name="points"
-                placeholder="Puntos iniciales"
-                value={points}
-                onChange={e => setPoints(e.target.value)}
               />
             </div>
             <div className="col-12">

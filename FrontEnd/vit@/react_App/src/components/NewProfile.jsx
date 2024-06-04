@@ -14,6 +14,7 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 import { Link } from "react-router-dom";
 import MisEventos from "./MisEventos";
+import perfil from "./Perfil.webp";
 
 const NewProfile = () => {
   const { userId } = useContext(UserContext);
@@ -41,7 +42,7 @@ const NewProfile = () => {
                   style={{ width: "150px" }}
                 >
                   <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+                    src={perfil}
                     alt="imagen profile"
                     className="mt-4 mb-2 img-thumbnail rounded-circle shadow-4"
                     fluid
@@ -52,7 +53,7 @@ const NewProfile = () => {
                     color="#2222AA"
                     style={{ height: "36px", marginTop: "15px", zIndex: 1 }}
                   >
-                    <Link to="/edit-profile" className="text-muted">
+                    <Link to="/editprofile" className="text-muted">
                       Editar perfil
                     </Link>
                   </MDBBtn>

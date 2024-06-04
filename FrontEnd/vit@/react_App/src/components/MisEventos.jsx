@@ -9,12 +9,12 @@ function MisEventos({ userId }) {
     fetch("http://localhost:8080/events")
       .then(response => response.json())
       .then(data => setEvents(data))
-      .catch(error => console.error("eROR GEGET:", error));
+      .catch(error => console.error("ERROR GET:", error));
   }, []);
 
   console.log(events);
 
-  const eventfilter = events.filter(event => event.id === userId.id);
+  const eventfilter = events.filter(event => event.created_By === userId.id);
 
   console.log(eventfilter);
   console.log(userId);
