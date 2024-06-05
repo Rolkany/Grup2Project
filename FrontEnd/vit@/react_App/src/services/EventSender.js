@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { useEventContext } from "./EventContext";
 
 const EventSender = ({ eventData, onSuccess, onError }) => {
   const [uploading, setUploading] = useState(false);
-  const { events, setEvents } = useEventContext();
 
   const sendEvent = async () => {
     setUploading(true);
