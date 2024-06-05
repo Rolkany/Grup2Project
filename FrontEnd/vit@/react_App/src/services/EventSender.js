@@ -8,7 +8,7 @@ const EventSender = ({ eventData, onSuccess, onError }) => {
   const sendEvent = async () => {
     setUploading(true);
     try {
-      const response = await fetch("http://localhost:8080/events", {
+      const response = await fetch("http://44.208.195.232:8080/Grupo2-V3/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,19 +1,18 @@
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { UserProvider } from "./components/UserContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import "./index.css";
 import Home from "./components/Home";
 import NewLogin from "./components/NewLogin";
-import RegistrationForm from "./components/RegistrationForm";
 import NewEvent from "./components/NewEvent";
 import EventList from "./components/EventList";
-import MisEventos from "./components/MisEventos";
-import "./index.css";
 import NewProfile from "./components/NewProfile";
 import EditProfile from "./components/EditProfile";
+import QuienesSomos from "./components/QuienesSomos";
+import RegistrationForm from "./components/RegistrationForm";
 
 const App = () => {
   return (
@@ -29,17 +28,12 @@ const App = () => {
             <Route path="/eventlist" element={<EventList />} />
             <Route path="/newperfil" element={<NewProfile />} />
             <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/quienessomos" element={<QuienesSomos />} />
           </Routes>
         </div>
       </Router>
     </UserProvider>
   );
-};
-
-App.propTypes = {
-  title: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  user: PropTypes.object.isRequired,
 };
 
 export default App;

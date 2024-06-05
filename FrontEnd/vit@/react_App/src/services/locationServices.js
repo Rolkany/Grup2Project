@@ -2,7 +2,7 @@
 
 const fetchAndSetLocations = async (setLocationOptions) => {
     try {
-        const response = await fetch("http://localhost:8080/locations", {
+        const response = await fetch("http://44.208.195.232:8080/Grupo2-V3/locations", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

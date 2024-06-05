@@ -1,12 +1,12 @@
 import Event from "./Event";
 import { useState, useEffect } from "react";
-//import eventsData from "../data/events";
+import "./MisEventos.css";
 
 function MisEventos({ userId }) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/events")
+    fetch("http://44.208.195.232:8080/Grupo2-V3/events")
       .then(response => response.json())
       .then(data => setEvents(data))
       .catch(error => console.error("ERROR GET:", error));
@@ -20,14 +20,12 @@ function MisEventos({ userId }) {
   console.log(userId);
   return (
     <>
-      <main className="container-xl mt-5">
-        <div className="row mt-5">
-          {eventfilter.map(event => (
-            <div key={event.id}>
-              <Event event={event} />
-            </div>
-          ))}
-        </div>
+      <main className="eventsBox">
+        {eventfilter.map(event => (
+          <div key={event.id}>
+            <Event event={event} />
+          </div>
+        ))}
       </main>
     </>
   );

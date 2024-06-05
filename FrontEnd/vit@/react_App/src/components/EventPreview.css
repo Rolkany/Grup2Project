@@ -5,7 +5,6 @@
   max-width: 97%;
   border-radius: 4px;
   padding: 55px 10px;
-  position: relative;
 }
 
 .img-preview-box {
@@ -16,12 +15,12 @@
 .img-preview-container {
   margin-right: 10px;
   margin-bottom: 10px;
-  height: 33%;
+  height: 50%;
 }
 
 .img-preview {
   width: 100%;
-  height: 300px;
+  height: 500px;
   object-fit: cover;
   margin-bottom: 5px;
 }

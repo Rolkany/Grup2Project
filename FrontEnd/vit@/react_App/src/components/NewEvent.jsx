@@ -2,13 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { uploadEventFile } from "../firebase/config";
 import { fetchAndSetLanguages } from "../services/languageServices";
 import { fetchAndSetLocations } from "../services/locationServices";
-import "./NewEvent.css";
 import NewHeader from "./NewHeader";
 import LanguageSelector from "./LanguageSelector";
 import LocationSelector from "./LocationSelector";
 import EventPreview from "./EventPreview";
 import UserContext from "./UserContext";
 import Footer from "./Footer";
+import "./NewEvent.css";
+import NewProfile from "./NewProfile";
 
 const NewEvent = () => {
   const { userId } = useContext(UserContext);
@@ -90,13 +91,16 @@ const NewEvent = () => {
       };
 
       // Send event data to backend API
-      const response = await fetch("http://localhost:8080/events", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(eventData),
-      });
+      const response = await fetch(
+        "http://44.208.195.232:8080/Grupo2-V3/events",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(eventData),
+        }
+      );
 
       // Log eventData to console
       console.log("eventData:", eventData);
@@ -108,7 +112,7 @@ const NewEvent = () => {
 
       // Parse response data
       const data = await response.json();
-      console.log("data:", data);
+      console.log("Response Data: ", data);
 
       // Set event created confirmation to true
       setEventCreated(true);
@@ -130,110 +134,120 @@ const NewEvent = () => {
 
   return (
     <>
-      <NewHeader />
-      <div className="titleBox">
-        <h1 className="cve">CREA TU EVENTO</h1>
-      </div>
-      <div className="boxes">
-        <form
-          className="cevent_form"
-          onSubmit={handleSubmit}
-          style={{ marginRight: "20px" }}
-        >
-          <div className="half">
-            <div className="item">
-              <h2 className="event_det">Event Details</h2>
-            </div>
-            <label htmlFor="file-upload" className="custom-file-upload">
-              Upload Picture
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              accept="image/*"
-              onChange={handlePictureChange}
-              style={{ display: "none" }}
-              disabled={uploading}
-            />
+      {eventCreated ? (
+        <NewProfile />
+      ) : (
+        <>
+          <NewHeader />
+          <div className="titleBox">
+            <h1 className="cve">CREA TU EVENTO</h1>
           </div>
-          <div className="half">
-            <div className="item">
-              <label htmlFor="title">Event Title:</label>
-              <input
-                type="text"
-                id="title"
-                value={eventTitle}
-                onChange={e => handleChange(e, setEventTitle)}
-              />
-            </div>
-            <div className="half">
-              <div className="item">
-                <label htmlFor="date">Event Date</label>
+          <div className="boxes">
+            <form
+              className="cevent_form"
+              onSubmit={handleSubmit}
+              style={{ marginRight: "20px" }}
+            >
+              <div className="half">
+                <div className="item">
+                  <h2 className="event_det">Event Details</h2>
+                </div>
+                <label htmlFor="file-upload" className="custom-file-upload">
+                  Upload Picture
+                </label>
                 <input
-                  type="datetime-local"
-                  id="date"
-                  value={eventDate}
-                  onChange={e => handleChange(e, setEventDate)}
+                  id="file-upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePictureChange}
+                  style={{ display: "none" }}
+                  disabled={uploading}
                 />
               </div>
-            </div>
-          </div>
-          <div className="full">
-            <div className="item">
-              <label htmlFor="type">Event Type</label>
-              <input
-                type="text"
-                id="type"
-                value={eventType}
-                onChange={e => handleChange(e, setEventType)}
-              />
-            </div>
-          </div>
-          <div className="full">
-            <LanguageSelector
-              options={languageOptions}
-              value={eventLanguage}
-              onChange={handleLanguageChange}
-            />
-          </div>
-          <div className="full">
-            <LocationSelector
-              options={locationOptions}
-              value={eventLocation}
-              onChange={handleLocationChange}
-            />
-          </div>
-          <div className="full">
-            <div className="item">
-              <label className="taxtlab" htmlFor="description">
-                Description:
-              </label>
-              <textarea
-                type="text"
-                id="description"
-                value={eventDescription}
-                onChange={e => handleChange(e, setEventDescription)}
-              />
-            </div>
-          </div>
-          <div className="action">
-            <input type="submit" value="CREATE EVENT" disabled={uploading} />
-          </div>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-        </form>
+              <div className="half">
+                <div className="item">
+                  <label htmlFor="title">Event Title:</label>
+                  <input
+                    type="text"
+                    id="title"
+                    value={eventTitle}
+                    onChange={e => handleChange(e, setEventTitle)}
+                  />
+                </div>
+                <div className="half">
+                  <div className="item">
+                    <label htmlFor="date">Event Date</label>
+                    <input
+                      type="datetime-local"
+                      id="date"
+                      value={eventDate}
+                      onChange={e => handleChange(e, setEventDate)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="full">
+                <div className="item">
+                  <label htmlFor="type">Event Type</label>
+                  <input
+                    type="text"
+                    id="type"
+                    value={eventType}
+                    onChange={e => handleChange(e, setEventType)}
+                  />
+                </div>
+              </div>
+              <div className="full">
+                <LanguageSelector
+                  options={languageOptions}
+                  value={eventLanguage}
+                  onChange={handleLanguageChange}
+                />
+              </div>
+              <div className="full">
+                <LocationSelector
+                  options={locationOptions}
+                  value={eventLocation}
+                  onChange={handleLocationChange}
+                />
+              </div>
+              <div className="full">
+                <div className="item">
+                  <label className="taxtlab" htmlFor="description">
+                    Description:
+                  </label>
+                  <textarea
+                    type="text"
+                    id="description"
+                    value={eventDescription}
+                    onChange={e => handleChange(e, setEventDescription)}
+                  />
+                </div>
+              </div>
+              <div className="action">
+                <input
+                  type="submit"
+                  value="CREATE EVENT"
+                  disabled={uploading}
+                />
+              </div>
+              {error && <p style={{ color: "red" }}>{error}</p>}
+            </form>
 
-        {/* Render the event preview component */}
-        <EventPreview
-          eventPicture={eventPicture}
-          eventTitle={eventTitle}
-          eventDate={eventDate}
-          eventType={eventType}
-          eventLanguage={eventLanguage}
-          eventLocation={eventLocation}
-          eventDescription={eventDescription}
-        />
-      </div>
-      <Footer />
+            {/* Render the event preview component */}
+            <EventPreview
+              eventPicture={eventPicture}
+              eventTitle={eventTitle}
+              eventDate={eventDate}
+              eventType={eventType}
+              eventLanguage={eventLanguage}
+              eventLocation={eventLocation}
+              eventDescription={eventDescription}
+            />
+          </div>
+          <Footer />
+        </>
+      )}
     </>
   );
 };

@@ -1,7 +1,6 @@
 // EventPreview.js
 import React from "react";
-import "./EventPreview";
-
+import "./EventPreview.css";
 const EventPreview = ({
   eventPicture,
   eventTitle,

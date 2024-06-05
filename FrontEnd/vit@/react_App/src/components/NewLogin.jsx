@@ -32,13 +32,16 @@ const NewLogin = () => {
     const userLogin = { email, pass };
 
     try {
-      const response = await fetch("http://localhost:8080/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userLogin),
-      });
+      const response = await fetch(
+        "http://44.208.195.232:8080/Grupo2-V3/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userLogin),
+        }
+      );
       if (!response.ok) {
         throw new Error("Fallo en el proceso de login", response.status);
       }

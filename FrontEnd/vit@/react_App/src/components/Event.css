@@ -8,7 +8,7 @@
     0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   background-size: cover;
-  position: relative; /* Añadido */
+  position: relative;
 }
 
 .backgroundEvent {
@@ -34,13 +34,12 @@
 }
 
 .cardEvent:hover .info {
-  transform: translateY(0); /* Al hacer hover, .info se mueve hacia arriba */
+  transform: translateY(0);
 }
 .card:hover .info,
 .card:hover .info:before {
   transform: translateY() translateZ(0);
 }
-/* ...tu CSS existente... */
 
 .title {
   margin-bottom: 0.5em;
@@ -63,7 +62,7 @@
 }
 
 .description {
-  margin-bottom: 0.5em;
+  margin-bottom: 3em;
   font-weight: inherit;
   line-height: 1.2;
   color: rgba(0, 9, 59, 0.829);

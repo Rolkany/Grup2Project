@@ -2,7 +2,7 @@
 
 const fetchAndSetLanguages = async (setLanguageOptions) => {
   try {
-    const response = await fetch("http://localhost:8080/languages", {
+    const response = await fetch("http://44.208.195.232:8080/Grupo2-V3/languages", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

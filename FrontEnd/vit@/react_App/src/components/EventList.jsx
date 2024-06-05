@@ -1,16 +1,14 @@
 import Event from "./Event";
 import { useState, useEffect } from "react";
-import "./Event.css";
-import "./EventList.css";
 import Footer from "./Footer";
 import NewHeader from "./NewHeader";
-//import eventsData from "../data/events";
+import "./EventList.css";
 
 function EventList() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/events")
+    fetch("http://44.208.195.232:8080/Grupo2-V3/events")
       .then(response => response.json())
       .then(data => setEvents(data))
       .catch(error => console.error("ERROR GET:", error));
